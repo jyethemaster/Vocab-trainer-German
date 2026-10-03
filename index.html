@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wortschatz – Duits B2 woordentrainer</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d2b2e;--card:#fff;--mut:#6b7b7e;--ac:#0e8a8f;--bd:#d9e2e2;--ok:#2e9e5b;--no:#d1493f;--gold:#e8a317;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a1b;--fg:#e8f0f0;--card:#1b2628;--mut:#93a5a8;--ac:#3cc0c5;--bd:#2c3b3d}}
+:root[data-theme="dark"]{--bg:#121a1b;--fg:#e8f0f0;--card:#1b2628;--mut:#93a5a8;--ac:#3cc0c5;--bd:#2c3b3d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:4px 0 10px;color:var(--ac)}
+#hd{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:10px 14px;margin-bottom:12px}
+.top{display:flex;justify-content:space-between;font-weight:600;font-size:15px}
+.bar{height:10px;border-radius:6px;background:var(--bd);margin:8px 0;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ac),var(--gold));transition:width .4s}
+.bdg{font-size:20px;letter-spacing:4px}.bdg s{text-decoration:none;opacity:.2;filter:grayscale(1)}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+#gs{flex:1;min-width:0;font-weight:600;padding:8px 10px;font-size:16px}nav button,.b{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--fg);padding:8px 12px;border-radius:10px;cursor:pointer}
+nav button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+select{font:inherit;padding:5px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--fg)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px}
+.sc{color:var(--mut);font-size:14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.word{font-size:28px;letter-spacing:5px;text-align:center;margin:12px 0;font-weight:600;word-break:break-all}
+.keys,.opts{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.keys button{width:34px;height:38px;padding:0}
+.b:disabled{opacity:.4;cursor:default}
+.b.ok{background:var(--ok);color:#fff;border-color:var(--ok)}.b.no{background:var(--no);color:#fff;border-color:var(--no)}
+.msg{text-align:center;min-height:26px;margin:10px 0;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mc{min-height:64px;font-size:14px;padding:4px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--bd);border-radius:10px;background:var(--ac);color:#fff;cursor:pointer;font-family:inherit;word-break:break-word}
+.mc.up{background:var(--card);color:var(--fg)}.mc.done{background:var(--ok);color:#fff;border-color:var(--ok)}
+.q{font-size:22px;text-align:center;margin:16px 0}.q u{display:inline-block;min-width:60px;color:var(--ac)}
+.zone{min-height:54px;border:2px dashed var(--bd);border-radius:10px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.t{padding:6px 10px}
+.row{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.big{font-size:44px;text-align:center}
+svg{display:block;margin:0 auto;width:140px;height:140px}#app>svg *{stroke:var(--fg);stroke-width:4;fill:none;stroke-linecap:round}
+#ts{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,80px);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:20px;opacity:0;transition:.3s;font-weight:600;z-index:9}#ts.show{transform:translate(-50%,0);opacity:1}
+input,textarea{font:inherit;width:100%;padding:8px;margin:0 0 8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--fg)}textarea{min-height:70px}.it{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--bd);font-size:14px}
+#tb{transition:none}
+.gm{font-size:13px;color:var(--mut);margin-bottom:10px}.gm .bar{height:5px;margin:4px 0 0}summary{cursor:pointer;font-weight:600}
+.xg{display:grid;gap:2px;margin:10px auto}.xc{position:relative;aspect-ratio:1;background:var(--card);border:1px solid var(--fg);display:flex;align-items:center;justify-content:center;font-weight:700;text-transform:uppercase;font-size:clamp(11px,4vw,18px);cursor:pointer;user-select:none}.xc i{position:absolute;top:0;left:2px;font-size:8px;font-style:normal;color:var(--mut)}.xe{aspect-ratio:1}.xa{background:color-mix(in srgb,var(--ac) 22%,var(--card))}.xs{background:var(--ac);color:#fff}.xw{color:var(--no)}.xr{color:var(--mut)}.xd{text-decoration:line-through;opacity:.5}.hid{position:fixed;left:0;bottom:0;width:1px;height:1px;opacity:0;font-size:16px;padding:0;border:0}
+.ar{position:relative;height:320px;overflow:hidden;border:1px solid var(--bd);border-bottom:3px solid var(--no);border-radius:12px;background:var(--bg)}.fw{position:absolute;padding:4px 9px;border-radius:10px;background:var(--ac);color:#fff;font-size:13px;white-space:nowrap}.fw.hl{background:var(--gold);color:#000}.ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;background:color-mix(in srgb,var(--card) 85%,transparent);z-index:2}
+@keyframes pop{50%{transform:scale(1.15)}}.pop{animation:pop .3s}
+
+/* ===== REVAMP SKIN ===== */
+:root{
+  --bg:#f4f7f8;--fg:#10272b;--card:#ffffff;--mut:#64777b;--ac:#087f83;--ac2:#22b8a7;
+  --bd:#dbe7e7;--ok:#269b62;--no:#d94a4a;--gold:#f0ad28;
+  --shadow:0 18px 45px rgba(16,39,43,.09);--shadow2:0 8px 22px rgba(16,39,43,.08)
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#081315;--fg:#edf8f7;--card:#102022;--mut:#91a9ab;--ac:#42d0c5;--ac2:#76e2d5;--bd:#263b3e;
+  --shadow:0 18px 50px rgba(0,0,0,.28);--shadow2:0 8px 24px rgba(0,0,0,.25)
+}}
+:root[data-theme="dark"]{--bg:#081315;--fg:#edf8f7;--card:#102022;--mut:#91a9ab;--ac:#42d0c5;--ac2:#76e2d5;--bd:#263b3e}
+html{background:var(--bg)}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10% -5%,color-mix(in srgb,var(--ac) 15%,transparent),transparent 32rem),
+    radial-gradient(circle at 100% 0%,color-mix(in srgb,var(--gold) 12%,transparent),transparent 28rem),
+    var(--bg);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  letter-spacing:-.01em
+}
+main{max-width:760px;padding:28px 18px 48px}
+h1{position:relative;font-size:clamp(25px,6vw,36px);line-height:1.05;letter-spacing:-.045em;margin:2px 2px 18px;color:var(--fg);font-weight:850}
+h1::after{content:"FINAL LEVEL";display:block;margin-top:7px;font-size:10px;letter-spacing:.2em;color:var(--ac);font-weight:800}
+#hd{position:relative;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--card) 94%,var(--ac) 6%),var(--card));border:1px solid var(--bd);border-radius:22px;padding:15px 17px;margin-bottom:12px;box-shadow:var(--shadow2)}
+#hd::before{content:"";position:absolute;width:130px;height:130px;right:-55px;top:-65px;border-radius:50%;background:color-mix(in srgb,var(--ac) 12%,transparent);pointer-events:none}
+#hd .top{font-size:13px;position:relative;z-index:1}
+#hd .bar{height:9px;margin:10px 0 1px;background:color-mix(in srgb,var(--bd) 75%,transparent)}
+#hd .bar i{background:linear-gradient(90deg,var(--ac),var(--ac2),var(--gold));box-shadow:0 0 16px color-mix(in srgb,var(--ac) 30%,transparent)}
+nav{position:sticky;top:8px;z-index:10;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:7px;padding:7px;margin:0 0 12px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:17px;box-shadow:var(--shadow2)}
+nav button,nav select,.b{border:1px solid var(--bd);background:var(--card);color:var(--fg);border-radius:12px;min-height:42px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease,background .16s ease}
+nav button:hover,.b:hover{transform:translateY(-1px);box-shadow:0 6px 15px rgba(0,0,0,.08);border-color:color-mix(in srgb,var(--ac) 40%,var(--bd))}
+nav button:active,.b:active{transform:translateY(1px) scale(.985)}
+#gs{padding:9px 12px;font-weight:750;font-size:14px;min-height:42px}
+nav button{padding:8px 11px;font-size:13px;font-weight:750;white-space:nowrap}
+nav button.on{background:var(--ac);border-color:var(--ac)}
+.card{background:color-mix(in srgb,var(--card) 97%,var(--ac) 3%);border:1px solid var(--bd);border-radius:22px;padding:20px;box-shadow:var(--shadow);min-height:300px;animation:cardIn .28s ease both}
+.gm{padding:3px 0 8px;font-size:12px;font-weight:700}.gm .bar{height:6px;border-radius:99px;background:var(--bd)}.gm .bar i{background:linear-gradient(90deg,var(--ac),var(--ac2))}
+.sc{font-size:13px;color:var(--mut)}
+.sc b{color:var(--fg)}
+.word{font-size:clamp(30px,8vw,52px);letter-spacing:.08em;font-weight:850;line-height:1.1;margin:24px 0 18px;text-wrap:balance}
+.msg{font-size:15px;min-height:30px}
+.q{font-size:clamp(23px,6vw,32px);font-weight:800;line-height:1.2;margin:26px 0}.q u{color:var(--ac);text-decoration-color:color-mix(in srgb,var(--ac) 35%,transparent)}
+.keys,.opts{gap:8px}
+.keys button,.opts .b{min-width:42px;min-height:42px;font-weight:750;border-radius:13px}
+.b{font-weight:700;box-shadow:0 2px 0 color-mix(in srgb,var(--bd) 80%,transparent)}
+.b.ok{box-shadow:0 4px 15px color-mix(in srgb,var(--ok) 22%,transparent)}.b.no{box-shadow:0 4px 15px color-mix(in srgb,var(--no) 18%,transparent)}
+input,textarea,select{outline:none;transition:border-color .16s,box-shadow .16s,transform .16s}input:focus,textarea:focus,select:focus{border-color:var(--ac);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 13%,transparent)}
+input,textarea{padding:11px 12px;border-radius:12px}
+.grid{gap:9px}
+.mc{min-height:76px;border-radius:15px;font-weight:700;border-color:var(--bd);box-shadow:0 3px 0 color-mix(in srgb,var(--bd) 80%,transparent);transition:transform .15s,box-shadow .15s,background .15s}.mc:hover{transform:translateY(-2px)}.mc.up{box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.zone{border-radius:15px;background:color-mix(in srgb,var(--bg) 60%,transparent);border-style:dashed}
+.it{padding:10px 2px}.it:last-child{border-bottom:0}
+.xg{gap:3px;border-radius:14px;overflow:hidden}.xc{border:1px solid color-mix(in srgb,var(--fg) 20%,transparent);font-size:clamp(12px,3.8vw,18px)}
+.ar{height:360px;border-radius:18px;box-shadow:inset 0 0 40px rgba(0,0,0,.04)}
+.fw{box-shadow:0 5px 13px rgba(0,0,0,.12);font-weight:750}
+.ov{backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.big{font-size:clamp(44px,13vw,76px);font-weight:900}
+svg{width:min(180px,55vw);height:min(180px,55vw)}
+#ts{border:1px solid color-mix(in srgb,var(--fg) 10%,transparent);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.pop{animation:pop .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes cardIn{from{opacity:0;transform:translateY(7px) scale(.995)}to{opacity:1;transform:none}}
+@keyframes pop{50%{transform:scale(1.08)}}
+@media(max-width:560px){main{padding:20px 12px 38px}nav{grid-template-columns:minmax(0,1fr) auto auto;top:5px}nav button{padding:8px 9px}.card{padding:16px;border-radius:19px}.grid{grid-template-columns:repeat(3,1fr)}.mc{min-height:70px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+
+/* ===== MASCOT / CHARACTER SYSTEM ===== */
+#buddy{position:relative;display:grid;grid-template-columns:86px 1fr;gap:12px;align-items:center;margin:0 0 12px;padding:12px 14px;border:1px solid var(--bd);border-radius:22px;background:linear-gradient(135deg,color-mix(in srgb,var(--card) 94%,var(--ac) 6%),var(--card));box-shadow:var(--shadow2);overflow:hidden}
+#buddy:before{content:"";position:absolute;width:170px;height:170px;right:-90px;top:-90px;border-radius:50%;background:color-mix(in srgb,var(--gold) 10%,transparent);pointer-events:none}
+.buddy-copy{position:relative;z-index:1;min-width:0}.buddy-name{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:850;color:var(--ac);margin-bottom:2px}.buddy-say{font-size:14px;font-weight:750;line-height:1.25}.buddy-meta{font-size:11px;color:var(--mut);margin-top:4px}
+.buddy-art.buddyPop{animation:buddyPop .5s ease both}
+@keyframes buddyPop{0%{transform:scale(.92)}55%{transform:scale(1.06)}100%{transform:scale(1)}}
+@keyframes buddyWave{50%{transform:rotate(-55deg) translateY(-4px)}}
+@media(max-width:520px){#buddy{grid-template-columns:70px 1fr;padding:10px 12px}.buddy-art{transform:scale(.88);transform-origin:left center}.buddy-say{font-size:13px}}
+
+/* ===== CHARACTER CHOICES / WARDROBE ===== */
+.character-choice{margin:0 0 14px;padding:12px;border:1px solid var(--bd);border-radius:18px;background:color-mix(in srgb,var(--card) 94%,var(--ac) 6%)}
+.choice-title{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);margin-bottom:9px}.choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.choice{border:1px solid var(--bd);background:var(--card);border-radius:14px;padding:10px;cursor:pointer;text-align:left;transition:.18s}.choice:hover{transform:translateY(-1px);box-shadow:var(--shadow2)}.choice.selected{border-color:var(--ac);box-shadow:0 0 0 2px color-mix(in srgb,var(--ac) 18%,transparent)}.choice-icon{font-size:24px}.choice-name{font-size:12px;font-weight:900;margin-top:3px}.choice-desc{font-size:10px;color:var(--mut);margin-top:2px}.wardrobe-slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.slot{padding:8px;border:1px solid var(--bd);border-radius:13px;background:var(--card);text-align:center}.slot b{display:block;font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}.slot span{display:block;font-size:18px;margin-top:4px}.style-scholar .buddy-body{background:linear-gradient(135deg,#4768d8,#7895ff)}.style-explorer .buddy-body{background:linear-gradient(135deg,#198b65,#4bc98d)}.style-challenger .buddy-body{background:linear-gradient(135deg,#b64b35,#f07b4f)}.style-scholar .buddy-badge:before{content:'📚'}.style-explorer .buddy-badge:before{content:'🧭'}.style-challenger .buddy-badge:before{content:'⚔️'}.style-scholar .buddy-badge,.style-explorer .buddy-badge,.style-challenger .buddy-badge{font-size:0}.style-scholar .buddy-badge:before,.style-explorer .buddy-badge:before,.style-challenger .buddy-badge:before{font-size:9px}.choice-note{font-size:11px;color:var(--mut);margin-top:8px}
+@media(max-width:520px){.choice-grid{grid-template-columns:1fr}.wardrobe-slots{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== XP COSMETICS SHOP ===== */
+#shopBtn{font-size:13px;font-weight:850}
+.shop-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
+.shop-title{font-size:26px;font-weight:900;letter-spacing:-.04em}.shop-sub{font-size:13px;color:var(--mut);margin-top:3px}
+.xp-wallet{padding:10px 13px;border-radius:15px;background:color-mix(in srgb,var(--gold) 13%,var(--card));border:1px solid color-mix(in srgb,var(--gold) 35%,var(--bd));font-weight:900;white-space:nowrap}
+.shop-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.shop-item{position:relative;padding:14px;border:1px solid var(--bd);border-radius:17px;background:var(--card);min-height:190px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:.18s}
+.shop-item:hover{transform:translateY(-2px);box-shadow:var(--shadow2);border-color:color-mix(in srgb,var(--ac) 35%,var(--bd))}
+.shop-item.owned{border-color:color-mix(in srgb,var(--ok) 45%,var(--bd))}.shop-item.locked{opacity:.7}
+.shop-preview{height:72px;display:grid;place-items:center;font-size:42px;background:color-mix(in srgb,var(--ac) 7%,var(--card));border-radius:13px;margin-bottom:10px}
+.shop-name{font-weight:850}.shop-desc{font-size:12px;color:var(--mut);margin-top:2px;min-height:32px}.shop-buy{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px}.shop-price{font-size:12px;font-weight:850;color:var(--gold)}
+.shop-eq{font-size:11px;font-weight:850;color:var(--ok)}
+@keyframes sparkle{to{transform:translateY(-4px) rotate(12deg) scale(1.12)}}
+@media(max-width:520px){.shop-grid{grid-template-columns:1fr}.shop-head{align-items:center}.xp-wallet{font-size:12px;padding:8px 10px}}
+
+
+
+/* ===== MONSTER AVATAR ===== */
+.buddy-art{position:relative;width:76px;height:76px}
+.buddy-art svg{width:100%;height:100%;overflow:visible;animation:mIdle 2.4s ease-in-out infinite}.buddy-art svg.rb{animation:mIdle 2.4s ease-in-out infinite,rb 5s linear infinite}
+.shop-preview svg{width:68px;height:68px;overflow:visible}.shop-preview svg.rb{animation:rb 5s linear infinite}
+.face g{display:none}#buddy .e-n,#buddy .m-n,.shop-preview .e-n,.shop-preview .m-n{display:inline}
+#buddy.happy .e-n,#buddy.happy .m-n,#buddy.sad .e-n,#buddy.sad .m-n,#buddy.excited .e-n,#buddy.excited .m-n,#buddy.winner .e-n,#buddy.winner .m-n{display:none}
+#buddy.happy .e-h,#buddy.happy .m-h,#buddy.sad .e-s,#buddy.sad .m-s,#buddy.excited .e-x,#buddy.excited .m-x,#buddy.winner .e-x,#buddy.winner .m-h{display:inline}
+#buddy.happy .buddy-art svg{animation:mHop .6s ease}#buddy.sad .buddy-art svg{animation:mShake .9s ease;filter:saturate(.75)}#buddy.excited .buddy-art svg{animation:mJig .7s ease 2}#buddy.winner .buddy-art svg{animation:mSpin 1s ease}
+#buddy.evolve .buddy-art svg{animation:mEvo 1.3s ease}
+.spk text{animation:tw 1.1s ease-in-out infinite alternate}
+@keyframes mIdle{50%{transform:translateY(-3px)}}@keyframes mHop{40%{transform:translateY(-12px) scale(1.06,.94)}}@keyframes mShake{25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+@keyframes mJig{20%{transform:translateY(-12px) rotate(-9deg)}60%{transform:translateY(-12px) rotate(9deg)}}@keyframes mSpin{50%{transform:translateY(-16px) rotate(180deg) scale(1.1)}100%{transform:rotate(360deg)}}
+@keyframes mEvo{0%{filter:brightness(1)}35%{filter:brightness(8) saturate(0);transform:scale(1.25)}100%{filter:brightness(1)}}@keyframes rb{to{filter:hue-rotate(360deg)}}@keyframes tw{to{transform:translateY(-4px) scale(1.15);opacity:.6}}
+
+/* Keep the reactive monster visible while the player works through a round. */
+#buddy{position:sticky;top:8px;z-index:20;scroll-margin-top:8px}
+#app{scroll-margin-top:112px}
+@media(max-width:520px){#app{scroll-margin-top:104px}}
+</style><link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0e8a8f">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+</head><body><main>
+<h1>Wortschatz · Duits B2</h1>
+<div id="hd"></div>
+<div id="buddy" aria-live="polite">
+  <div class="buddy-art" id="monArt" aria-hidden="true"></div>
+  <div class="buddy-copy"><div class="buddy-name">Mysterieus ei</div><div class="buddy-say" id="buddySay">Klaar voor een nieuwe ronde?</div><div class="buddy-meta" id="buddyMeta">Ik juich voor elke goede poging.</div></div>
+</div>
+<nav id="nav"></nav>
+<div id="app" class="card"></div>
+</main><div id="ts"></div>
+<script>
+/* DATA: 150 Duitse B2-woorden in 8 thema's (woord=Nederlandse vertaling; der/die/das = lidwoord) */
+const VOC=[],EN={},PR=[],IDI=[],TH=["","Arbeit & Beruf","Gesellschaft & Politik","Umwelt & Natur","Gesundheit","Wissenschaft & Technik","Bildung & Medien","Wirtschaft & Konsum","Meinung & Alltag"];
+`1|die Bewerbung=sollicitatie;das Vorstellungsgespräch=sollicitatiegesprek;der Arbeitgeber=werkgever;der Arbeitnehmer=werknemer;die Kündigung=ontslag / opzegging;das Gehalt=salaris;die Erfahrung=ervaring;die Fortbildung=bijscholing;der Lebenslauf=cv;die Zusammenarbeit=samenwerking;die Verantwortung=verantwoordelijkheid;die Anforderung=eis / vereiste;der Vorgesetzte=leidinggevende;die Besprechung=bespreking;der Termin=afspraak / deadline;verhandeln=onderhandelen;befördern=bevorderen;einstellen=aannemen;entlassen=ontslaan
+2|die Gesellschaft=samenleving;die Regierung=regering;das Gesetz=wet;die Wahl=verkiezing / keuze;der Bürger=burger;die Gleichberechtigung=gelijkberechtiging;die Gemeinschaft=gemeenschap;die Verfassung=grondwet;die Zuwanderung=immigratie;die Integration=integratie;der Konflikt=conflict;die Entscheidung=beslissing;die Meinung=mening;die Verpflichtung=verplichting;die Gerechtigkeit=rechtvaardigheid;fördern=bevorderen / stimuleren;unterstützen=steunen;beschließen=besluiten;verabschieden=aannemen (wet)
+3|die Umwelt=milieu;der Klimawandel=klimaverandering;die Verschmutzung=vervuiling;der Abfall=afval;die Ressource=hulpbron / grondstof;die Energie=energie;die Nachhaltigkeit=duurzaamheid;der Umweltschutz=milieubescherming;die Überschwemmung=overstroming;die Dürre=droogte;die Landschaft=landschap;das Ökosystem=ecosysteem;der Verbrauch=verbruik;schützen=beschermen;verschwenden=verspillen;vermeiden=vermijden;schonen=ontzien / sparen;ausstoßen=uitstoten;wiederverwerten=hergebruiken
+4|die Gesundheit=gezondheid;die Krankheit=ziekte;die Behandlung=behandeling;die Ernährung=voeding;die Untersuchung=(medisch) onderzoek;das Medikament=medicijn;die Nebenwirkung=bijwerking;die Verletzung=verwonding;der Stress=stress;die Erholung=herstel / ontspanning;die Vorsorge=preventie;die Impfung=vaccinatie;der Schmerz=pijn;das Übergewicht=overgewicht;die Heilung=genezing;heilen=genezen;vorbeugen=voorkomen;untersuchen=onderzoeken;leiden=lijden
+5|die Forschung=onderzoek;die Entwicklung=ontwikkeling;die Erfindung=uitvinding;die Technik=techniek;die Wissenschaft=wetenschap;das Ergebnis=resultaat;die Annahme=aanname;der Beweis=bewijs;die Erkenntnis=inzicht;die Anwendung=toepassing;das Verfahren=werkwijze / procedure;der Fortschritt=vooruitgang;der Zusammenhang=samenhang;die Gefahr=gevaar;entwickeln=ontwikkelen;erfinden=uitvinden;beweisen=bewijzen;nachweisen=aantonen;herstellen=produceren
+6|die Bildung=opleiding / vorming;das Studium=studie;der Abschluss=diploma / afronding;die Prüfung=examen;die Fähigkeit=vaardigheid;das Wissen=kennis;die Nachricht=bericht / nieuws;die Berichterstattung=verslaggeving;die Öffentlichkeit=publiek / openbaarheid;der Einfluss=invloed;die Quelle=bron;die Werbung=reclame;die Zeitschrift=tijdschrift;vermitteln=overbrengen / bemiddelen;veröffentlichen=publiceren;berichten=verslag doen;überprüfen=controleren;beeinflussen=beïnvloeden;abschließen=afronden
+7|die Wirtschaft=economie;der Handel=handel;der Preis=prijs;die Nachfrage=vraag;das Angebot=aanbod;der Gewinn=winst;der Verlust=verlies;die Steuer=belasting;das Einkommen=inkomen;der Verbraucher=consument;die Ware=goederen;die Beschwerde=klacht;die Rechnung=rekening;der Vertrag=contract;erwerben=verwerven;überweisen=overmaken;umtauschen=ruilen;vergleichen=vergelijken
+8|erheblich=aanzienlijk;ausreichend=voldoende;vermutlich=vermoedelijk;zweifellos=ongetwijfeld;allerdings=echter / weliswaar;jedoch=echter;außerdem=bovendien;schließlich=uiteindelijk;zunehmend=toenemend;ursprünglich=oorspronkelijk;gelegentlich=af en toe;ausdrücklich=uitdrukkelijk;selbstverständlich=vanzelfsprekend;üblich=gebruikelijk;zuverlässig=betrouwbaar;eindeutig=ondubbelzinnig;angemessen=passend;bedeutend=belangrijk`.trim().split("\n").forEach(l=>{const[c,rest]=l.split("|");rest.split(";").forEach(s=>{let[w,g]=s.split("=");const m=w.match(/^(der|die|das) (.+)$/),a=m?m[1]:"";if(m)w=m[2];w=w.toLowerCase();if(EN[w])return;VOC.push({w,c:+c,a});EN[w]=g+(a?" · "+a:"")})});
+const ARX=/ · (der|die|das)$/,D=x=>x.a?x.w[0].toUpperCase()+x.w.slice(1):x.w;
+/* werkwoord (hint) | voorzetsel | naamval | thema */
+PR.push(...`teilnehmen (deelnemen)|an|Dat.|1;sich bewerben (solliciteren)|um|Akk.|1;sich kümmern (zorgen voor)|um|Akk.|1;verhandeln (onderhandelen)|mit|Dat.|1;sich beschweren (klagen)|über|Akk.|1;zusammenarbeiten (samenwerken)|mit|Dat.|1;verantwortlich sein (verantwoordelijk zijn)|für|Akk.|1;sich engagieren (zich inzetten)|für|Akk.|2;sich einigen (het eens worden)|auf|Akk.|2;abhängen (afhangen)|von|Dat.|2;verzichten (afzien)|auf|Akk.|2;sich entscheiden (kiezen)|für|Akk.|2;protestieren (protesteren)|gegen|Akk.|2;beitragen (bijdragen)|zu|Dat.|2;sich schützen (zich beschermen)|vor|Dat.|3;leiden (last hebben van)|unter|Dat.|3;bestehen (bestaan)|aus|Dat.|3;führen (leiden)|zu|Dat.|3;sich auswirken (effect hebben)|auf|Akk.|3;warnen (waarschuwen)|vor|Dat.|3;sich anpassen (zich aanpassen)|an|Akk.|3;sich beschäftigen (zich bezighouden)|mit|Dat.|3;leiden (ziek zijn van)|an|Dat.|4;sich ernähren (zich voeden)|von|Dat.|4;sich impfen lassen (zich laten inenten)|gegen|Akk.|4;sich erholen (herstellen)|von|Dat.|4;achten (letten)|auf|Akk.|4;sich fürchten (bang zijn)|vor|Dat.|4;sich Sorgen machen (zich zorgen maken)|um|Akk.|4;forschen (onderzoek doen)|nach|Dat.|5;basieren (gebaseerd zijn)|auf|Dat.|5;sich interessieren (zich interesseren)|für|Akk.|5;zweifeln (twijfelen)|an|Dat.|5;sich handeln (gaan)|um|Akk.|5;sich entwickeln (zich ontwikkelen)|zu|Dat.|5;sich informieren (zich informeren)|über|Akk.|6;berichten (berichten)|über|Akk.|6;sich vorbereiten (zich voorbereiden)|auf|Akk.|6;sich konzentrieren (zich concentreren)|auf|Akk.|6;träumen (dromen)|von|Dat.|6;gehören (horen)|zu|Dat.|6;investieren (investeren)|in|Akk.|7;sparen (sparen)|für|Akk.|7;sich beschränken (zich beperken)|auf|Akk.|7;handeln (handelen)|mit|Dat.|7;profitieren (profiteren)|von|Dat.|7;sich freuen (uitkijken naar)|auf|Akk.|8;sich freuen (blij zijn over)|über|Akk.|8;sich ärgern (zich ergeren)|über|Akk.|8;sich erinnern (zich herinneren)|an|Akk.|8;sich verlieben (verliefd worden)|in|Akk.|8;warten (wachten)|auf|Akk.|8;sich entschuldigen (zich verontschuldigen bij)|bei|Dat.|8;sich bedanken (bedanken voor)|für|Akk.|8;bitten (vragen)|um|Akk.|8`.split(";").map(s=>{const[t,p,k,c]=s.split("|");return{t,p,k,c:+c}}));
+/* idioom | betekenis | thema */
+IDI.push(...`Überstunden machen|overwerken|1
+auf dem Laufenden bleiben|op de hoogte blijven|1
+im Home-Office arbeiten|thuiswerken|1
+Wir ziehen an einem Strang.|We trekken aan één lijn.|1
+den Anschluss verlieren|achterop raken|1
+Ich bin zurzeit sehr eingespannt.|Ik heb het op dit moment erg druk.|1
+in Kraft treten|in werking treden|2
+Verantwortung übernehmen|verantwoordelijkheid nemen|2
+Es kommt darauf an.|Het hangt ervan af.|2
+eine Rolle spielen|een rol spelen|2
+Das steht außer Frage.|Dat staat buiten kijf.|2
+zur Wahl gehen|gaan stemmen|2
+in der Minderheit sein|in de minderheid zijn|2
+Energie sparen|energie besparen|3
+Müll trennen|afval scheiden|3
+aus dem Gleichgewicht geraten|uit balans raken|3
+Es regnet in Strömen.|Het regent pijpenstelen.|3
+Wir müssen jetzt handeln.|We moeten nu handelen.|3
+unter Naturschutz stehen|beschermd natuurgebied zijn|3
+Ich fühle mich nicht wohl.|Ik voel me niet lekker.|4
+Das geht mir auf die Nerven.|Dat werkt op mijn zenuwen.|4
+Ich habe mich erkältet.|Ik ben verkouden geworden.|4
+bei guter Gesundheit sein|in goede gezondheid zijn|4
+einen Termin vereinbaren|een afspraak maken|4
+auf dem neuesten Stand sein|up-to-date zijn|5
+unter die Lupe nehmen|onder de loep nemen|5
+Das ist wissenschaftlich belegt.|Dat is wetenschappelijk aangetoond.|5
+in Frage stellen|in twijfel trekken|5
+einer Sache auf den Grund gehen|iets tot de bodem uitzoeken|5
+Übung macht den Meister.|Oefening baart kunst.|6
+Das Thema liegt mir am Herzen.|Dat onderwerp ligt me na aan het hart.|6
+eine Prüfung bestehen|voor een examen slagen|6
+durch die Prüfung fallen|voor een examen zakken|6
+sich den Kopf zerbrechen|zich het hoofd breken|6
+Das lohnt sich.|Dat loont de moeite.|7
+Geld auf die hohe Kante legen|geld opzijzetten|7
+ins Geld gehen|veel geld kosten|7
+über seine Verhältnisse leben|boven zijn stand leven|7
+Zeit ist Geld.|Tijd is geld.|7
+Das ist ein Schnäppchen.|Dat is een koopje.|7
+Hals über Kopf|halsoverkop|8
+auf jeden Fall|in elk geval|8
+im Grunde genommen|in feite|8
+meiner Meinung nach|naar mijn mening|8
+Das leuchtet mir ein.|Dat is me duidelijk.|8
+Das ist Geschmackssache.|Dat is een kwestie van smaak.|8
+ein Auge zudrücken|een oogje dichtknijpen|8
+Das ist mir egal.|Het maakt me niet uit.|8
+in der Regel|in de regel|8
+auf keinen Fall|in geen geval|8`.split("\n").map(s=>{const[t,m,c]=s.split("|");return{t,m,c:+c}}));
+
+/* STATE + GAMIFICATION */
+const sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let G={xp:0,corr:0,wins:0,best:0},combo=0,ch=0,cur="Galgje";
+try{G=Object.assign(G,JSON.parse(localStorage.getItem("wd")||"{}"))}catch(e){}G.ach=G.ach||[];G.gx=G.gx||{};G.gb=G.gb||[];G.spent=G.spent||0;G.shop=G.shop||{owned:[],equipped:{}};
+G.character=G.character||{style:"scholar"};
+if(!["scholar","explorer","challenger"].includes(G.character.style))G.character.style="scholar";
+const save=()=>{try{localStorage.setItem("wd",JSON.stringify(G))}catch(e){}};
+const xpBalance=()=>Math.max(0,G.xp-(G.spent||0));
+const styleChoices=[
+ {id:"scholar",name:"Scholar",icon:"🧑‍🎓",desc:"Slim, rustig en gefocust."},
+ {id:"explorer",name:"Explorer",icon:"🧭",desc:"Nieuwsgierig en avontuurlijk."},
+ {id:"challenger",name:"Challenger",icon:"⚔️",desc:"Competitief en klaar voor actie."}
+];
+/* ===== MONSTER SYSTEM (5 stages: Ei → Baby → Kind → Tiener → Mega) ===== */
+const OLDC={redcap:180,bluehood:250,scarf:450,wizard:600,purple:750,pet:900,gold:1800},SLOTS=["mon","col","acc","fx"];
+const shopItems=[
+ {id:"flame",name:"Flammi",desc:"Vurig starter-monster.",cost:0,emoji:"🔥",slot:"mon"},
+ {id:"aqua",name:"Bubbi",desc:"Een speels watermonster.",cost:300,emoji:"💧",slot:"mon",min:2},
+ {id:"leaf",name:"Blaadje",desc:"Groeit mee met je kennis.",cost:300,emoji:"🌿",slot:"mon",min:2},
+ {id:"volt",name:"Sparko",desc:"Vol stroom en energie!",cost:700,emoji:"⚡",slot:"mon",min:4},
+ {id:"c_def",name:"Oorspronkelijk",desc:"De natuurlijke kleur.",cost:0,emoji:"🎨",slot:"col"},
+ {id:"c_gold",name:"Goud",desc:"Glanzend als een schat.",cost:250,emoji:"🟡",slot:"col"},
+ {id:"c_pink",name:"Roze",desc:"Zacht en vrolijk.",cost:250,emoji:"🌸",slot:"col"},
+ {id:"c_ice",name:"IJs",desc:"Koel en kristalhelder.",cost:400,emoji:"❄️",slot:"col"},
+ {id:"c_night",name:"Middernacht",desc:"Mysterieus paars.",cost:400,emoji:"🌙",slot:"col"},
+ {id:"c_rb",name:"Regenboog",desc:"Wisselt steeds van kleur!",cost:900,emoji:"🌈",slot:"col",min:5},
+ {id:"glasses",name:"Slimme bril",desc:"Serieuze blik, serieuze woorden.",cost:120,emoji:"👓",slot:"acc"},
+ {id:"bow",name:"Strik",desc:"Even stylen.",cost:180,emoji:"🎀",slot:"acc"},
+ {id:"crown",name:"Meesterkroon",desc:"Voor echte woordmeesters.",cost:1200,emoji:"👑",slot:"acc",min:5},
+ {id:"sparkle",name:"XP-aura",desc:"Glinsterende sterretjes.",cost:350,emoji:"✨",slot:"fx"}
+];
+const shopItem=id=>shopItems.find(x=>x.id===id);
+function normalizeShop(){const s=G.shop;s.owned=Array.isArray(s.owned)?s.owned:[];s.equipped=s.equipped||{};
+ const n=s.owned.length;s.owned=s.owned.filter(id=>{if(OLDC[id]){G.spent=Math.max(0,(G.spent||0)-OLDC[id]);return false}return true}); /* retired human outfits are refunded */
+ ["flame","c_def"].forEach(id=>{if(!s.owned.includes(id))s.owned.push(id)});
+ s.equipped.acc=s.equipped.acc||s.equipped.accessory;s.equipped.fx=s.equipped.fx||s.equipped.effect;
+ const o={};SLOTS.forEach(k=>{const it=shopItem(s.equipped[k]);if(it&&it.slot==k&&s.owned.includes(it.id))o[k]=it.id});
+ o.mon=o.mon||"flame";o.col=o.col||"c_def";s.equipped=o;if(s.owned.length!=n)save()}
+normalizeShop();
+const STG=L=>L>=11?4:L>=7?3:L>=4?2:L>=2?1:0,SN=["Ei","Baby","Kind","Tiener","Mega"];
+const PAL={
+ flame:["#ff5a36","#ffd166","#8f2035","#ff9f1c"],
+ aqua:["#21b6e8","#c7f5ff","#1769aa","#7ce7ff"],
+ leaf:["#4fcf75","#d9f99d","#237a4b","#8be28d"],
+ volt:["#ffd43b","#fff3a6","#8b5a00","#fff06a"],
+ c_gold:["#f3c34e","#fff0b8","#9b6400","#ffe27a"],
+ c_pink:["#ff72ad","#ffe0ef","#b72f68","#ffb6d6"],
+ c_ice:["#65d8e8","#e7fbff","#277c9c","#a8f3ff"],
+ c_night:["#7957d5","#d9cfff","#34206f","#b79aff"],
+ c_rb:["#ff5a36","#ffe9b8","#8f2035","#ffb347"]
+};
+const EMO={flame:"🔥",aqua:"💧",leaf:"🌿",volt:"⚡"};
+
+const MONSTER_NAMES={flame:["Flammi","Blazeling","Blazebeast","Pyroclaw","Inferno Rex"],aqua:["Bubbi","Ripplet","Tidepup","Aquadrake","Abyssalon"],leaf:["Blaadje","Spriggo","Florafang","Verdantor","Elderbloom"],volt:["Sparko","Zapbit","Voltiger","Stormfang","Thunderion"]};
+
+function monsterBody(sp,p,st){
+  const [main,light,dark,accent]=p;
+  const eye="#17242a";
+  const scale=st===1?.88:st===2?.98:st===3?1.05:1.12;
+  let body="",features="",back="",front="",tail="";
+  if(sp==="flame"){
+    back=`<path d="M27 65Q8 53 13 34Q25 40 35 51Q27 34 39 17Q48 31 48 47" fill="${dark}" stroke="${eye}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    body=`<path d="M50 27C31 27 19 43 20 63C21 84 34 94 50 94C66 94 79 84 80 63C81 43 69 27 50 27Z" fill="${main}" stroke="${eye}" stroke-width="3"/>`;
+    front=`<path d="M37 68Q50 79 63 68L60 89Q50 96 40 89Z" fill="${light}" stroke="${dark}" stroke-width="2"/><path d="M39 48Q32 36 40 29Q48 36 50 47Q52 36 61 29Q68 38 61 50" fill="${accent}" stroke="${dark}" stroke-width="2"/>`;
+    tail=`<path d="M76 69Q94 63 88 45Q83 55 73 55" fill="none" stroke="${dark}" stroke-width="7" stroke-linecap="round"/><path d="M88 45Q97 38 91 29Q87 38 79 39" fill="${accent}" stroke="${eye}" stroke-width="2"/>`;
+  }else if(sp==="aqua"){
+    back=`<path d="M27 61Q8 49 12 29Q28 35 38 51Q31 32 45 14Q51 29 50 44Q57 28 67 20Q72 38 62 52" fill="${dark}" stroke="${eye}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    body=`<path d="M50 26C29 26 18 44 21 66C24 86 37 94 50 94C63 94 76 86 79 66C82 44 71 26 50 26Z" fill="${main}" stroke="${eye}" stroke-width="3"/>`;
+    front=`<path d="M34 65Q50 75 66 65L62 89Q50 97 38 89Z" fill="${light}" stroke="${dark}" stroke-width="2"/><path d="M31 47Q22 40 25 30Q34 34 42 45M69 47Q78 40 75 30Q66 34 58 45" fill="${accent}" stroke="${dark}" stroke-width="2"/>`;
+    tail=`<path d="M77 70Q96 75 91 55Q86 63 74 57" fill="none" stroke="${dark}" stroke-width="7" stroke-linecap="round"/><circle cx="91" cy="53" r="7" fill="${accent}" stroke="${eye}" stroke-width="2"/>`;
+  }else if(sp==="leaf"){
+    back=`<path d="M30 65Q10 55 17 35Q28 38 39 52Q32 31 48 14Q54 31 50 46Q61 29 72 25Q75 44 61 57" fill="${dark}" stroke="${eye}" stroke-width="2.5"/>`;
+    body=`<path d="M50 25C31 27 20 45 22 66C24 84 35 94 50 94C65 94 76 84 78 66C80 45 69 27 50 25Z" fill="${main}" stroke="${eye}" stroke-width="3"/>`;
+    front=`<path d="M35 65Q50 77 65 65L61 89Q50 97 39 89Z" fill="${light}" stroke="${dark}" stroke-width="2"/><path d="M50 45Q43 34 36 29Q35 42 45 52M50 45Q57 34 65 29Q65 42 55 52" fill="${accent}" stroke="${dark}" stroke-width="2"/>`;
+    tail=`<path d="M76 72Q96 78 91 57Q84 66 73 59" fill="none" stroke="${dark}" stroke-width="7" stroke-linecap="round"/><path d="M91 55Q99 49 92 41Q89 48 82 48" fill="${accent}" stroke="${eye}" stroke-width="2"/>`;
+  }else{
+    back=`<path d="M28 64Q7 51 14 30L35 47Q30 28 43 12L51 43Q60 24 72 22Q75 41 62 55" fill="${dark}" stroke="${eye}" stroke-width="2.5"/>`;
+    body=`<path d="M50 24C29 25 18 43 20 65C22 85 35 94 50 94C65 94 78 85 80 65C82 43 71 25 50 24Z" fill="${main}" stroke="${eye}" stroke-width="3"/>`;
+    front=`<path d="M35 64Q50 77 65 64L61 89Q50 97 39 89Z" fill="${light}" stroke="${dark}" stroke-width="2"/><path d="M34 46L42 29L48 43L55 27L65 47" fill="none" stroke="${accent}" stroke-width="6" stroke-linejoin="round"/>`;
+    tail=`<path d="M77 70Q97 75 89 54Q85 64 73 58" fill="none" stroke="${dark}" stroke-width="7" stroke-linecap="round"/><path d="M89 54L98 45L89 42L92 33L82 48Z" fill="${accent}" stroke="${eye}" stroke-width="2"/>`;
+  }
+
+  if(st>=2){
+    features += `<path d="M31 42Q25 35 28 28Q35 31 39 39M69 42Q75 35 72 28Q65 31 61 39" fill="${accent}" stroke="${eye}" stroke-width="2.2" stroke-linejoin="round"/>`;
+  }
+  if(st>=3){
+    features += `<path d="M24 62Q10 57 12 45Q22 47 30 55M76 62Q90 57 88 45Q78 47 70 55" fill="${main}" stroke="${eye}" stroke-width="3"/><path d="M28 80Q20 78 17 69Q26 68 34 74M72 80Q80 78 83 69Q74 68 66 74" fill="${accent}" stroke="${eye}" stroke-width="2"/>`;
+  }
+  if(st>=4){
+    features += `<path d="M33 35L22 15L39 26L50 7L61 26L78 15L67 35" fill="${accent}" stroke="${eye}" stroke-width="3" stroke-linejoin="round"/><path d="M31 58Q18 53 15 39" fill="none" stroke="${light}" stroke-width="5" stroke-linecap="round"/><path d="M69 58Q82 53 85 39" fill="none" stroke="${light}" stroke-width="5" stroke-linecap="round"/>`;
+  }
+  if(st===1) features += `<path d="M43 29Q50 22 57 29" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/>`;
+  return {body,front,back,features,tail,scale,eye};
+}
+
+function faceSVG(state,st,eye){
+  const happy=state==="happy"||state==="winner"||state==="excited";
+  const sad=state==="sad";
+  const mouth=happy?`<path d="M43 67Q50 76 57 67" fill="none" stroke="${eye}" stroke-width="3" stroke-linecap="round"/>`
+    :sad?`<path d="M43 72Q50 64 57 72" fill="none" stroke="${eye}" stroke-width="3" stroke-linecap="round"/>`
+    :`<path d="M44 68Q50 71 56 68" fill="none" stroke="${eye}" stroke-width="2.8" stroke-linecap="round"/>`;
+  const eyeShape=st>=4?`<path d="M34 55Q40 48 46 55Q40 62 34 55ZM54 55Q60 48 66 55Q60 62 54 55Z" fill="#17242a"/><circle cx="41" cy="54" r="2" fill="#fff"/><circle cx="61" cy="54" r="2" fill="#fff"/>`
+    :`<ellipse cx="40" cy="55" rx="${st>=2?5:4}" ry="${st>=2?6:5}" fill="#17242a"/><ellipse cx="60" cy="55" rx="${st>=2?5:4}" ry="${st>=2?6:5}" fill="#17242a"/><circle cx="41.5" cy="53" r="1.7" fill="#fff"/><circle cx="61.5" cy="53" r="1.7" fill="#fff"/>`;
+  return `<circle cx="32" cy="65" r="4.5" fill="#ff8fa3" opacity=".55"/><circle cx="68" cy="65" r="4.5" fill="#ff8fa3" opacity=".55"/>${eyeShape}${mouth}`;
+}
+
+function monSVG(sp,col,st,pr,acc,fx,state="neutral"){
+  sp=EMO[sp]?sp:"flame";
+  const p=PAL[col]||PAL[sp],d=monsterBody(sp,p,st),eye=d.eye;
+  const s=d.scale;
+  const egg=(st===0);
+  let g="";
+  if(egg){
+    g=`<ellipse cx="50" cy="94" rx="29" ry="5" fill="rgba(0,0,0,.16)"/>
+      <path d="M50 10C70 10 84 35 84 61C84 84 70 95 50 95C30 95 16 84 16 61C16 35 30 10 50 10Z" fill="${p[1]}" stroke="${eye}" stroke-width="3"/>
+      <path d="M27 39Q39 48 49 38T73 38" fill="none" stroke="${p[0]}" stroke-width="6" stroke-linecap="round"/>
+      <path d="M30 68Q42 57 50 68T70 68" fill="none" stroke="${p[2]}" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="37" cy="26" r="5" fill="${p[0]}" opacity=".85"/><circle cx="65" cy="31" r="4" fill="${p[3]}" opacity=".9"/>
+      <path d="M43 76Q50 82 57 76" fill="none" stroke="${eye}" stroke-width="2.5" stroke-linecap="round"/>`;
+  }else{
+    const aura=st>=4?`<circle cx="50" cy="57" r="47" fill="${p[3]}" opacity=".11"/><circle cx="50" cy="57" r="41" fill="none" stroke="${p[3]}" stroke-width="1.5" stroke-dasharray="3 6" opacity=".6"/>`:"";
+    g=`${aura}<ellipse cx="50" cy="95" rx="32" ry="5" fill="rgba(0,0,0,.16)"/>
+      <g transform="translate(50 92) scale(${s}) translate(-50 -92)">
+        ${d.back}${d.tail}${d.body}${d.front}${d.features}
+        ${faceSVG(state,st,eye)}
+        ${st>=2?`<path d="M30 83Q50 88 70 83" fill="none" stroke="${p[3]}" stroke-width="3" stroke-linecap="round" opacity=".85"/>`:""}
+      </g>`;
+    if(acc==="glasses"){
+      g+=`<g fill="rgba(255,255,255,.24)" stroke="#17242a" stroke-width="2.4"><circle cx="40" cy="55" r="8.5"/><circle cx="60" cy="55" r="8.5"/><path d="M48.5 55H51.5"/></g>`;
+    }else if(acc==="bow"){
+      g+=`<g stroke="#7b234e" stroke-width="1.5"><path d="M62 35Q72 27 77 35Q72 42 62 39Z" fill="#ff5a9d"/><path d="M62 35Q52 27 47 35Q52 42 62 39Z" fill="#ff77b3"/><circle cx="62" cy="37" r="4" fill="#ffd166"/></g>`;
+    }else if(acc==="crown"){
+      g+=`<path d="M31 34L35 20L43 28L50 16L57 28L65 20L69 34Z" fill="#ffd43b" stroke="#7a5200" stroke-width="2.5"/><path d="M34 34H66" stroke="#fff0a8" stroke-width="3"/>`;
+    }
+  }
+  if(fx){
+    g+=`<g fill="${p[3]}" stroke="${p[3]}" stroke-width="1">
+      <path d="M12 28L14 34L20 36L14 38L12 44L10 38L4 36L10 34Z"><animateTransform attributeName="transform" type="scale" values="1;1.18;1" dur="1.1s" repeatCount="indefinite"/></path>
+      <path d="M84 23L86 29L92 31L86 33L84 39L82 33L76 31L82 29Z"><animateTransform attributeName="transform" type="rotate" values="0 84 31;20 84 31;0 84 31" dur="1.3s" repeatCount="indefinite"/></path>
+      <circle cx="88" cy="76" r="3"/><circle cx="15" cy="75" r="2.5"/>
+    </g>`;
+  }
+  return `<svg viewBox="0 0 100 100" role="img" aria-label="${MONSTER_NAMES[sp]?.[st]||"Monster"}"${col==="c_rb"?' class="rb"':""}>${g}</svg>`;
+}
+function drawMon(){
+  const a=document.getElementById("monArt");if(!a)return;
+  const e=G.shop.equipped,[L,x,c]=lvf(G.xp),st=STG(L);
+  a.innerHTML=monSVG(e.mon,e.col,st,x/c,e.acc,e.fx==="sparkle");
+}
+const prev=it=>{const e=G.shop.equipped;return it.slot==="mon"?monSVG(it.id,e.col,3,1,e.acc,e.fx==="sparkle"):it.slot==="col"?monSVG(e.mon,it.id,3,1,e.acc,e.fx==="sparkle"):it.emoji};
+const evolveFX=()=>{
+  const e=document.getElementById("buddy");if(!e)return;
+  e.classList.add("evolve");setTimeout(()=>e.classList.remove("evolve"),1500);
+};
+
+function setStyle(id){if(!styleChoices.some(x=>x.id===id))return;G.character.style=id;save();applyCharacter();characterHome();}
+function equipShop(id){const it=shopItem(id);if(!it||!G.shop.owned.includes(id))return;normalizeShop();G.shop.equipped[it.slot]=G.shop.equipped[it.slot]===id?null:id;save();applyCharacter();shop()}
+function buyShop(id){const it=shopItem(id);if(!it)return;if(G.shop.owned.includes(id)){equipShop(id);return}if(lvl()<(it.min||1)){toast("🔒 Bereik eerst niveau "+it.min+".");return}if(xpBalance()<it.cost){toast("💠 Nog "+(it.cost-xpBalance())+" XP nodig.");return}G.spent+=it.cost;G.shop.owned.push(id);normalizeShop();G.shop.equipped[it.slot]=id;save();applyCharacter();toast("✨ "+it.name+" vrijgespeeld!");shop()}
+function applyCharacter(){buddyRefresh()}
+function characterHome(){const o=document.getElementById("characterChoice");if(o)o.remove()}
+function shop(){tstop();normalizeShop();const bal=xpBalance(),L=lvl();const slotName={mon:"Monster",col:"Kleur",acc:"Accessoire",fx:"Effect"};h(`<div class="shop-head"><div><div class="shop-title">🛍️ Monsterwinkel</div><div class="shop-sub">Verdien XP door te leren en geef het uit aan nieuwe monsters, kleuren en extra's.</div></div><div class="xp-wallet">💠 ${bal} XP</div></div><div class="sc"><span>Niveau ${L}</span><span>${G.shop.owned.length}/${shopItems.length} vrijgespeeld</span></div><div class="wardrobe-slots">${Object.keys(slotName).map(k=>{const id=G.shop.equipped[k],it=shopItem(id);return `<div class="slot"><b>${slotName[k]}</b><span>${it?it.emoji:"—"}</span></div>`}).join("")}</div><div class="shop-grid">${shopItems.map(it=>{const owned=G.shop.owned.includes(it.id),equipped=owned&&G.shop.equipped[it.slot]===it.id,locked=L<(it.min||1),can=bal>=it.cost&&!locked;return `<div class="shop-item ${owned?"owned":""} ${locked?"locked":""}"><div><div class="shop-preview">${prev(it)}</div><div class="shop-name">${it.name}</div><div class="shop-desc">${it.desc}</div><div class="shop-desc">Slot: ${slotName[it.slot]}</div></div><div class="shop-buy"><span class="shop-price">${locked?"🔒 Niveau "+it.min:(equipped?"✓ Actief":"💠 "+it.cost+" XP")}</span><button class="b" data-shop="${it.id}" ${locked||(!owned&&!can)?"disabled":""}>${equipped?"Uitzetten":owned?"Kiezen":"Vrijspelen"}</button></div></div>`}).join("")}</div><div class="row"><button class="b" id="shopBack">← Terug naar spellen</button></div>`);app.querySelectorAll("[data-shop]").forEach(b=>b.onclick=()=>{const id=b.dataset.shop;if(G.shop.owned.includes(id))equipShop(id);else buyShop(id)});document.getElementById("shopBack").onclick=()=>go("Galgje");applyCharacter()}
+
+const lvf=(x,b=100,s=50)=>{let L=1,c=b;while(x>=c){x-=c;L++;c=b+s*(L-1)}return[L,x,c]},lvl=()=>lvf(G.xp)[0];
+const RK=["Beginner","Leerling","Gevorderd","Expert","Meester"],GBI=["🥉","🥈","🥇","🔥","⭐"];
+const GBD=[["25 goed",g=>g.c>=25],["100 goed",g=>g.c>=100],["300 goed",g=>g.c>=300],["Combo ×10",g=>g.b>=10],["Niveau 5",g=>lvf(g.xp,80,40)[0]>=5]];
+const TRK=()=>cur!="Mijn woorden"&&cur!="Voortgang",gs=k=>G.gx[k]||(G.gx[k]={xp:0,c:0,t:0,b:0});
+const gm=()=>{const g=gs(cur),[L,x,c]=lvf(g.xp,80,40);return `<div class="gm"><span>${cur} · Niveau ${L} ${RK[Math.min(4,(L-1)/3|0)]}</span><span style="float:right">${x}/${c} XP</span><div class="bar"><i style="width:${x/c*100}%"></i></div></div>`};
+function gchk(){const g=gs(cur);GBD.forEach((d,i)=>{const id=cur+":"+i;if(!G.gb.includes(id)&&d[1](g)){G.gb.push(id);toast("🏅 "+cur+": "+d[0])}})}
+const AC=[["a1","🌱","Eerste goede antwoord",()=>G.corr>=1],["a2","📚","50 goede antwoorden",()=>G.corr>=50],["a3","🔥","Combo ×5",()=>combo>=5],["a4","⚡","Combo ×10",()=>combo>=10],["a5","🏆","Eerste spel gewonnen",()=>G.wins>=1],["a6","⭐","Niveau 5",()=>lvl()>=5],["a7","🎯","10 spellen gewonnen",()=>G.wins>=10]];
+function toast(m){const t=document.getElementById("ts");t.textContent=m;t.classList.add("show");clearTimeout(toast.i);toast.i=setTimeout(()=>t.classList.remove("show"),2400)}
+function hdr(){const [HL,HX,HC]=lvf(G.xp);document.getElementById("hd").innerHTML=`<div class="top"><span>Niveau ${HL}</span><span>${combo>1?"🔥 ×"+(1+Math.min(combo-1,5)*.2).toFixed(1)+" combo ("+combo+")":"Combo: 0"}</span><span>💠 ${xpBalance()} XP · ${HX}/${HC}</span></div><div class="bar"><i style="width:${HX/HC*100}%"></i></div>`}
+function chk(){AC.forEach(a=>{if(!G.ach.includes(a[0])&&a[3]()){G.ach.push(a[0]);toast("🏅 Badge: "+a[2])}})}
+/* SOUND */
+let SND=true,AX=null;try{SND=localStorage.getItem("wd_snd")!=="0"}catch(e){}
+function tone(f,d,ty="sine",v=.15,at=0){if(!SND)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;AX=AX||new C();if(AX.state=="suspended")AX.resume();const o=AX.createOscillator(),g=AX.createGain(),t0=AX.currentTime+at;o.type=ty;o.frequency.setValueAtTime(f,t0);g.gain.setValueAtTime(.0001,t0);g.gain.exponentialRampToValueAtTime(v,t0+.01);g.gain.exponentialRampToValueAtTime(.0001,t0+d);o.connect(g);g.connect(AX.destination);o.start(t0);o.stop(t0+d+.02)}catch(e){}}
+const sOk=()=>{tone(784,.35);tone(1568,.2,"sine",.05)},sLet=()=>tone(659,.15,"sine",.1);
+const sBad=()=>{tone(160,.22,"triangle",.18);try{SND&&navigator.vibrate&&navigator.vibrate(90)}catch(e){}};
+const sWin=()=>[523,659,784,1047].forEach((f,i)=>tone(f,.25,"sine",.12,.15+i*.1));
+const sOver=()=>{[392,330,262].forEach((f,i)=>tone(f,.3,"triangle",.14,i*.18))};
+const sTick=()=>tone(1100,.05,"square",.03);
+function buddyReact(state,msg,meta){
+ const el=document.getElementById("buddy");if(!el)return;
+ el.classList.remove("happy","sad","excited","winner");void el.offsetWidth;el.classList.add(state);const art=el.querySelector(".buddy-art");if(art){art.classList.remove("buddyPop");void art.offsetWidth;art.classList.add("buddyPop");}
+ const say=document.getElementById("buddySay"),m=document.getElementById("buddyMeta");
+ if(say&&msg)say.textContent=msg;if(m&&meta)m.textContent=meta;
+ clearTimeout(buddyReact.t);buddyReact.t=setTimeout(()=>{el.classList.remove("happy","sad","excited","winner");buddyRefresh()},2600);
+}
+function buddyRefresh(){
+ const L=lvl(),st=STG(L),say=document.getElementById("buddySay"),m=document.getElementById("buddyMeta"),el=document.getElementById("buddy"),nm=document.querySelector(".buddy-name");if(!el)return;
+ normalizeShop();drawMon();if(nm)nm.textContent=st?shopItem(G.shop.equipped.mon).name:"Mysterieus ei";
+ if(["happy","sad","excited","winner"].some(c=>el.classList.contains(c)))return;
+ if(say)say.textContent=st==0?"Ik zit nog in mijn ei… blijf leren! 🥚":L>=11?"Meesterlijk. Klaar voor de volgende uitdaging?":"Klaar voor een nieuwe ronde?";
+ if(m)m.textContent=SN[st]+" · Niveau "+L+(st<4?" · evolueert op niveau "+[2,4,7,11][st]:"");
+}
+function good(b){combo++;sOk();const x=Math.round(b*(1+Math.min(combo-1,5)*.2)),L=lvl(),g=gs(cur),GL=lvf(g.xp,80,40)[0];G.xp+=x;G.corr++;g.xp+=x;g.c++;g.t++;g.b=Math.max(g.b,combo);const NL=lvl();if(NL>L){toast("🎉 Niveau "+NL+"!");sWin();(STG(NL)>STG(L)?(evolveFX(),toast("🌟 Evolutie: "+SN[STG(NL)]+"!"),buddyReact("winner","EVOLUTIE! 🌟","Je maatje is nu in de "+SN[STG(NL)]+"-vorm!")):buddyReact("winner","LEVEL UP! 🎉","Je wist niveau "+NL+" te bereiken."))}else{const line=combo>=10?"ONSTOPPELIJK! ⚡":combo>=5?"Lekker bezig! 🔥":combo>=3?"Nice combo!":"Goed gedaan! ✓";buddyReact(combo>=5?"excited":"happy",line,"+"+x+" XP · Combo ×"+(1+Math.min(combo-1,5)*.2).toFixed(1));}if(lvf(g.xp,80,40)[0]>GL)toast("🎮 "+cur+": niveau "+lvf(g.xp,80,40)[0]+"!");gchk();chk();save();hdr();if(!document.getElementById('buddy').classList.contains('winner'))buddyRefresh();else drawMon();return x}
+function bad(){sBad();combo=0;gs(cur).t++;hdr();buddyReact("sad","Bijna! 💪","Geen probleem — probeer het nog eens.");setTimeout(buddyRefresh,1800)}
+function won(){sWin();G.wins++;chk();save();hdr();buddyReact("winner","RONDE GEWONNEN! 🏆","Je hebt dit spel uitgespeeld.");setTimeout(buddyRefresh,2600)}
+const app=document.getElementById("app"),nav=document.getElementById("nav"),h=s=>app.innerHTML=(TRK()?gm():"")+s;
+// Keep the monster in view and return to the new round after Next Round.
+app.addEventListener("click",e=>{if(e.target.closest("#nx")){requestAnimationFrame(()=>app.scrollIntoView({behavior:"smooth",block:"start"}));}});
+/* TIMER */
+const B=[0,20,12,8],TN=["Uit","Rustig","Normaal","Snel"];let T=0;
+try{T=(+localStorage.getItem("wd_t"))%4||0}catch(e){}
+const TS=()=>B[T];let TM={id:0,end:0,tot:0};
+function tstop(){clearInterval(TM.id);TM.id=0}
+function tstart(sec,cb){tstop();if(!sec)return;TM.ls=0;TM.tot=sec*1000;TM.end=Date.now()+TM.tot;TM.id=setInterval(()=>{const l=TM.end-Date.now(),b=document.getElementById("tb"),t=document.getElementById("tt");if(b){b.style.width=Math.max(0,l/TM.tot*100)+"%";b.style.background=l<TM.tot*.25?"var(--no)":""}if(t)t.textContent="⏱ "+Math.max(0,Math.ceil(l/1000))+"s";{const sc=Math.ceil(l/1000);if(sc<=10&&sc>0&&TM.ls!=sc){TM.ls=sc;sTick()}}if(l<=0){tstop();cb()}},100)}
+const tbar=()=>TS()?`<div class="sc"><span id="tt">⏱</span></div><div class="bar" style="margin-top:0"><i id="tb" style="width:100%"></i></div>`:"";
+const games={"Galgje":hang,"Memory":mem,"Voorzetsels":prep,"Der, die of das":()=>art("dh"),"Zinnen":scr,"Idiomen":idi,"Synoniemen":syg,"Kruiswoord":xw,"Woord Regen":wr,"Mijn woorden":mine,"Sterke werkwoorden":ver,"Voortgang":prog};
+const gsel=document.createElement("select");gsel.id="gs";Object.keys(games).forEach(k=>{const o=document.createElement("option");o.textContent=k;o.value=k;gsel.appendChild(o)});gsel.onchange=()=>go(gsel.value);nav.appendChild(gsel);
+const shopBtn=document.createElement("button");shopBtn.id="shopBtn";shopBtn.textContent="🛍️ Shop";shopBtn.onclick=()=>shop();nav.appendChild(shopBtn);
+const tbn=document.createElement("button");tbn.textContent="⏱ Timer: "+TN[T];tbn.onclick=()=>{T=(T+1)%4;try{localStorage.setItem("wd_t",T)}catch(e){}tbn.textContent="⏱ Timer: "+TN[T];games[cur]()};nav.appendChild(tbn);const sbn=document.createElement("button");sbn.textContent=SND?"🔊":"🔇";sbn.style.width="36px";sbn.style.minWidth="36px";sbn.style.height="36px";sbn.style.padding="0";sbn.style.flex="0 0 36px";sbn.title="Sound";sbn.onclick=()=>{SND=!SND;try{localStorage.setItem("wd_snd",SND?"1":"0")}catch(e){}sbn.textContent=SND?"🔊":"🔇";if(SND)sOk()};nav.appendChild(sbn);
+function go(k){tstop();cur=k;gsel.value=k;games[k]()}
+const chSel=()=>`<select id="ch">${["Alle thema's",1,2,3,4,5,6,7,8,"Mijn woorden"].map((o,i)=>`<option value="${i}" ${i==ch?"selected":""}>${i==9?o:i?o+" · "+TH[i]:o}</option>`).join("")}</select>`;
+const bindCh=()=>{const s=document.getElementById("ch");if(s)s.onchange=()=>{ch=+s.value;games[cur]()}};
+const pool=(a,k)=>{const f=a.filter(x=>(!ch||x.c==ch)&&!isK(x)),g=a.filter(x=>!isK(x));return f.length?f:g.length?g:a};
+
+/* GALGJE (5 mistakes) */
+function hang(){
+ const MAX=5,e=pick(pool(VOC)),w=e.w;let g=[],bd=0,xp=0;if(TS())tstart(TS()*4,()=>{bd=MAX;bad();rec("v:"+w,0);draw()});
+ const parts=['<line x1="20" y1="140" x2="130" y2="140"/><line x1="40" y1="140" x2="40" y2="15"/><line x1="40" y1="15" x2="100" y2="15"/><line x1="100" y1="15" x2="100" y2="35"/>','<circle cx="100" cy="48" r="13"/>','<line x1="100" y1="61" x2="100" y2="100"/>','<line x1="100" y1="70" x2="80" y2="90"/><line x1="100" y1="70" x2="120" y2="90"/>','<line x1="100" y1="100" x2="85" y2="125"/>','<line x1="100" y1="100" x2="115" y2="125"/>'];
+ function draw(){
+  const wn=[...w].every(c=>g.includes(c)||!/[a-zäöüß]/.test(c)),lo=bd>=MAX,end=wn||lo;if(end)tstop();
+  h(`<div class="sc"><span>❤️ ${"❤️".repeat(MAX-bd)}${"🖤".repeat(bd)}</span>${chSel()}</div>
+  ${tbar()}<svg viewBox="0 0 150 150">${parts.slice(0,bd+1).join("")}</svg>
+  <div class="word">${[...w].map(c=>g.includes(c)||lo||!/[a-zäöüß]/.test(c)?c:"_").join(" ")}</div>
+  <div class="sc" style="justify-content:center">Vertaling: <b>&nbsp;${EN[w]||"?"}&nbsp;</b> · ${w.length} letters · ${e.c==9?"mijn lijst":"thema "+e.c}</div>
+  <div class="msg" style="color:var(--${wn?"ok":"no"})">${wn?"Goed zo! +"+xp+" XP 🎉":lo?"Het woord was: "+D(e):""}</div>
+  <div class="keys">${"abcdefghijklmnopqrstuvwxyzäöüß".split("").map(c=>`<button class="b ${g.includes(c)?(w.includes(c)?"ok":"no"):""}" ${g.includes(c)||end?"disabled":""} data-c="${c}">${c}</button>`).join("")}</div>
+  <div class="row"><button class="b" id="nx">Nieuw woord</button>${knBtn()}<button class="b" id="ed">✎ Definitie</button></div>`);bindCh();
+  app.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{const c=b.dataset.c;g.push(c);
+   if(!w.includes(c)){bad();bd++;if(bd>=MAX)rec("v:"+w,0)}else if([...w].every(x=>g.includes(x)||!/[a-zäöüß]/.test(x))){xp=good(10+(MAX-bd)*4);won();rec("v:"+w,1)}else sLet();
+   draw()});
+  document.getElementById("nx").onclick=()=>{if(!end)bad();hang()};bindKn("v:"+w,hang);document.getElementById("ed").onclick=()=>{tstop();edq=w;go("Mijn woorden")};
+ }
+ draw();
+}
+
+/* MEMORY */
+let mm="e",mlv=1;
+function mem(){
+ let pairs;
+ if(mm=="v"){const seen=new Set();pairs=sh(pool(PR)).filter(x=>!seen.has(x.p)&&seen.add(x.p)).slice(0,[4,6,10][mlv]).map(x=>[x.t,x.p])}
+ else if(mm=="s"){const u=new Set();pairs=sh(pool(SYN)).map(x=>[x.d||x.w,sh(x.y)[0]]).filter(p=>!u.has(p[0])&&!u.has(p[1])&&u.add(p[0])&&u.add(p[1])).slice(0,[4,6,10][mlv])}
+ else{const u=new Set();pairs=sh(pool(VOC)).filter(x=>EN[x.w]&&!u.has(EN[x.w])&&u.add(EN[x.w])).slice(0,[4,6,10][mlv]).map(x=>[(x.a?x.a+" ":"")+D(x),EN[x.w].replace(ARX,"")])}
+ const n=pairs.length;
+ let cards=sh(pairs.flatMap((p,i)=>[{t:p[0],i},{t:p[1],i}])),open=[],done=new Set(),mv=0,lock=false,tout=false;if(TS())tstart(TS()*n,()=>{tout=true;bad();draw()});
+ function draw(){
+  const fin=done.size==n,st=mv<=n+3?3:mv<=n*2?2:1;if(fin||tout)tstop();
+  h(`<div class="sc"><span>Zetten: ${mv} · Paren: ${done.size}/${n}</span><span><select id="md"><option value="v" ${mm=="v"?"selected":""}>Werkwoord ↔ voorzetsel</option><option value="e" ${mm=="e"?"selected":""}>Duits ↔ Nederlands</option><option value="s" ${mm=="s"?"selected":""}>Synoniemen</option></select></span></div>
+  <div class="sc">${chSel()}<select id="lv">${["Makkelijk (4 paren)","Gemiddeld (6 paren)","Moeilijk (10 paren)"].map((o,i)=>`<option value="${i}" ${i==mlv?"selected":""}>${o}</option>`).join("")}</select></div>
+  ${tbar()}<div class="grid">${cards.map((c,k)=>{const up=open.includes(k)||done.has(c.i);return `<button class="mc ${up?"up":""} ${done.has(c.i)?"done":""}" data-n="${k}">${up?c.t:"?"}</button>`}).join("")}</div>
+  <div class="msg">${fin?"Klaar! "+"⭐".repeat(st)+" 🎉":tout?"⏰ Tijd is om!":"Zoek de passende paren."}</div>
+  <div class="row"><button class="b" id="nx">Opnieuw</button></div>`);bindCh();
+  document.getElementById("md").onchange=e=>{mm=e.target.value;mem()};document.getElementById("lv").onchange=e=>{mlv=+e.target.value;mem()};
+  document.getElementById("nx").onclick=mem;
+  app.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>{
+   const k=+b.dataset.n;if(tout||lock||open.includes(k)||done.has(cards[k].i))return;
+   open.push(k);draw();
+   if(open.length==2){mv++;const[a,c]=open;
+    if(cards[a].i==cards[c].i){done.add(cards[a].i);open=[];good(5);if(done.size==n){good(Math.round(st*10*[1,1.5,2][mlv]));won()}draw()}
+    else{lock=true;bad();setTimeout(()=>{open=[];lock=false;draw()},900)}}
+  });
+ }
+ draw();
+}
+
+/* VOORZETSELS (3 lives, endless run) */
+let ps=0,lv=3;
+function prep(fresh){
+ if(fresh!==false){ps=0;lv=3}
+ const all=[...new Set(PR.map(p=>p.p))],q=pick(pool(PR));let ans=null;if(TS())tstart(TS(),()=>{if(ans==null){ans="⏰";lv--;bad();rec(keyOf(q),0);draw()}});
+ function draw(){
+  if(lv<=0){tstop();if(ps>G.best){G.best=ps;save()}
+   h(`${sOver()||""}<div class="big">💀</div><div class="msg">Game over! Score: ${ps} · Record: ${G.best}</div><div class="row"><button class="b" id="nx">Opnieuw spelen</button></div>`);
+   document.getElementById("nx").onclick=()=>prep();return}
+  h(`<div class="sc"><span>${"❤️".repeat(lv)}</span><span>Score: ${ps}</span>${chSel()}</div>
+  ${tbar()}<div class="q ${ans==q.p?"pop":""}">${q.t} <u>${ans||"&nbsp;"}</u></div>
+  <div class="opts">${all.map(o=>`<button class="b ${ans?(o==q.p?"ok":o==ans?"no":""):""}" ${ans?"disabled":""} data-o="${o}">${o}</button>`).join("")}</div>
+  <div class="msg" style="color:var(--${ans==q.p?"ok":"no"})">${ans?(ans==q.p?"Juist! ✓ ":"Fout — ")+q.t.replace(/ \(.*\)$/,"")+" "+q.p+(q.k?" ("+q.k+")":""):""}</div>
+  <div class="row">${ans?'<button class="b" id="nx">Volgende →</button>':""}${knBtn()}</div>`);
+  const s=document.getElementById("ch");if(s)s.onchange=()=>{ch=+s.value;prep()};
+  app.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{tstop();ans=b.dataset.o;rec(keyOf(q),ans==q.p);if(ans==q.p){ps++;good(8);if(ps%10==0)won()}else{lv--;bad()}draw()});
+  const nx=document.getElementById("nx");if(nx)nx.onclick=()=>prep(false);bindKn(keyOf(q),()=>prep(false));
+ }
+ draw();
+}
+
+/* ZINNEN */
+function scr(){
+ const fx=pool(ALL),e=pick(fx),s=e.s,toks=s.split(" "),t0=Date.now();let pl,bt=[],res="",out=false;
+ do pl=sh(toks.map(t=>({t})));while(pl.map(x=>x.t).join(" ")==s);if(TS())tstart(TS()*3,()=>{out=true;bad();if(e.w)rec("v:"+e.w,0);res="⏰ Tijd is om! "+s;draw()});
+ function draw(){
+  h(`<div class="sc"><span>Zet de zin in orde${e.en?` · ${esc(e.en)}`:e.w?` · <b>${esc(e.d||e.w)}</b> = ${esc((EN[e.w]||"").replace(ARX,""))}`:""}</span>${chSel()}</div>
+  ${tbar()}<div class="zone">${bt.map((x,n)=>`<button class="b t" data-b="${n}">${x.t}</button>`).join("")}</div>
+  <div class="opts">${pl.map((x,n)=>`<button class="b t" data-p="${n}">${x.t}</button>`).join("")}</div>
+  <div class="msg" style="color:var(--${res.startsWith("✓")?"ok":"no"})">${res}</div>
+  <div class="row"><button class="b" id="ck">Controleer</button><button class="b" id="rs">Wissen</button><button class="b" id="nx">Nieuwe zin</button>${e.w?knBtn():""}</div>`);
+  bindCh();app.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{if(out)return;bt.push(pl.splice(+b.dataset.p,1)[0]);res="";draw()});
+  app.querySelectorAll("[data-b]").forEach(b=>b.onclick=()=>{if(out)return;pl.push(bt.splice(+b.dataset.b,1)[0]);res="";draw()});
+  document.getElementById("ck").onclick=()=>{if(out)return;
+   if(bt.map(x=>x.t).join(" ")==s){tstop();if(e.w)rec("v:"+e.w,1);const sec=(Date.now()-t0)/1000,x=good(15+Math.max(0,Math.round(20-sec/2)));won();res="✓ Correct! +"+x+" XP"+(sec<20?" (snelheidsbonus ⚡)":"")}
+   else{bad();if(e.w)rec("v:"+e.w,0);res="Nog niet goed, probeer het opnieuw."}draw()};
+  document.getElementById("rs").onclick=()=>{pl=pl.concat(bt);bt=[];res="";draw()};
+  document.getElementById("nx").onclick=scr;if(e.w)bindKn("v:"+e.w,scr);
+ }
+ draw();
+}
+const ALL=IDI.filter(x=>/[.?]$/.test(x.t)&&!/[()…]/.test(x.t)).map(x=>({s:x.t,c:x.c,en:x.m}));
+const SV=`bewerbung|Ich schicke meine Bewerbung heute ab.
+vorstellungsgespräch|Das Vorstellungsgespräch beginnt um zehn Uhr.
+arbeitgeber|Mein Arbeitgeber bezahlt die Fortbildung.
+arbeitnehmer|Jeder Arbeitnehmer hat Anspruch auf Urlaub.
+kündigung|Er hat gestern die Kündigung bekommen.
+gehalt|Das Gehalt wird am Monatsende überwiesen.
+erfahrung|Sie hat viel Erfahrung in diesem Bereich.
+fortbildung|Ich besuche nächste Woche eine Fortbildung.
+lebenslauf|Bitte fügen Sie Ihren Lebenslauf bei.
+zusammenarbeit|Die Zusammenarbeit im Team funktioniert gut.
+verantwortung|Er trägt die Verantwortung für das Projekt.
+anforderung|Diese Anforderung können wir leider nicht erfüllen.
+vorgesetzte|Mein Vorgesetzter ist heute nicht im Büro.
+besprechung|Die Besprechung dauert etwa eine Stunde.
+termin|Wir müssen den Termin leider verschieben.
+verhandeln|Die Firmen verhandeln über den Preis.
+befördern|Man hat sie zur Abteilungsleiterin befördert.
+einstellen|Die Firma will zehn neue Mitarbeiter einstellen.
+entlassen|Wegen der Krise musste man viele Leute entlassen.
+gesellschaft|Die Gesellschaft verändert sich sehr schnell.
+regierung|Die Regierung plant ein neues Gesetz.
+gesetz|Dieses Gesetz schützt die Rechte der Bürger.
+wahl|Die Wahl findet im Herbst statt.
+bürger|Jeder Bürger darf seine Meinung äußern.
+gleichberechtigung|Die Gleichberechtigung ist ein wichtiges Ziel.
+gemeinschaft|Eine starke Gemeinschaft hilft in schwierigen Zeiten.
+verfassung|Die Verfassung garantiert die Meinungsfreiheit.
+zuwanderung|Die Zuwanderung bringt Chancen und Probleme.
+integration|Sprachkurse erleichtern die Integration.
+konflikt|Der Konflikt wurde endlich friedlich gelöst.
+entscheidung|Das war eine schwierige Entscheidung für mich.
+meinung|Ich möchte gern meine Meinung sagen.
+verpflichtung|Er hat eine Verpflichtung gegenüber seiner Familie.
+gerechtigkeit|Alle Menschen wünschen sich Gerechtigkeit.
+fördern|Der Staat will junge Familien stärker fördern.
+unterstützen|Die Nachbarn unterstützen uns beim Umzug.
+beschließen|Der Gemeinderat hat den Bau einer Schule beschlossen.
+verabschieden|Das Parlament hat das Gesetz verabschiedet.
+umwelt|Wir müssen die Umwelt besser schützen.
+klimawandel|Der Klimawandel betrifft uns alle.
+verschmutzung|Die Verschmutzung der Meere nimmt zu.
+abfall|Plastikabfall ist ein großes Problem.
+ressource|Wasser ist eine wertvolle Ressource.
+energie|Wir sollten weniger Energie verbrauchen.
+nachhaltigkeit|Nachhaltigkeit spielt in der Firma eine große Rolle.
+umweltschutz|Umweltschutz beginnt im Alltag.
+überschwemmung|Nach dem Regen kam es zu einer Überschwemmung.
+dürre|Die Dürre hat die Ernte zerstört.
+landschaft|Die Landschaft in den Alpen ist wunderschön.
+ökosystem|Das Ökosystem im Wald ist sehr empfindlich.
+verbrauch|Der Verbrauch von Strom steigt jedes Jahr.
+schützen|Dieser Zaun soll den Garten vor Wind schützen.
+verschwenden|Man sollte kein Wasser verschwenden.
+vermeiden|Wir versuchen, unnötigen Müll zu vermeiden.
+schonen|Das Fahrrad schont die Umwelt.
+ausstoßen|Alte Autos stoßen viel CO2 aus.
+wiederverwerten|Glas kann man gut wiederverwerten.
+gesundheit|Gesundheit ist wichtiger als Geld.
+krankheit|Die Krankheit dauerte mehrere Wochen.
+behandlung|Die Behandlung hat sehr gut geholfen.
+ernährung|Eine gesunde Ernährung ist wichtig.
+untersuchung|Morgen habe ich eine Untersuchung im Krankenhaus.
+medikament|Der Arzt hat mir ein Medikament verschrieben.
+nebenwirkung|Dieses Medikament hat kaum Nebenwirkungen.
+verletzung|Die Verletzung am Knie heilt langsam.
+stress|Zu viel Stress macht krank.
+erholung|Nach der Arbeit brauche ich etwas Erholung.
+vorsorge|Vorsorge kann viele Krankheiten verhindern.
+impfung|Die Impfung schützt vor einer Infektion.
+schmerz|Der Schmerz im Rücken wird langsam besser.
+übergewicht|Übergewicht kann zu Herzproblemen führen.
+heilung|Die Heilung dauert oft mehrere Monate.
+heilen|Die Wunde heilt nur langsam.
+vorbeugen|Bewegung kann Rückenschmerzen vorbeugen.
+untersuchen|Der Arzt untersucht den Patienten gründlich.
+leiden|Viele Menschen leiden unter Schlafproblemen.
+forschung|Die Forschung braucht mehr Geld.
+entwicklung|Die Entwicklung der Technik geht sehr schnell.
+erfindung|Die Erfindung des Buchdrucks veränderte die Welt.
+technik|Moderne Technik erleichtert den Alltag.
+wissenschaft|Die Wissenschaft sucht Antworten auf viele Fragen.
+ergebnis|Das Ergebnis der Studie überrascht uns.
+annahme|Diese Annahme ist leider falsch.
+beweis|Dafür gibt es bisher keinen Beweis.
+erkenntnis|Diese Erkenntnis ist für die Forschung wichtig.
+anwendung|Die Anwendung der App ist einfach.
+verfahren|Das Verfahren ist sehr kompliziert.
+fortschritt|Der technische Fortschritt verändert unsere Arbeit.
+zusammenhang|Es gibt einen Zusammenhang zwischen Schlaf und Gesundheit.
+gefahr|Die Gefahr ist noch nicht vorbei.
+entwickeln|Die Firma will ein neues Produkt entwickeln.
+erfinden|Wer hat eigentlich das Telefon erfunden?
+beweisen|Der Forscher konnte seine Theorie beweisen.
+nachweisen|Man kann den Virus im Blut nachweisen.
+herstellen|In dieser Fabrik stellt man Autos her.
+bildung|Gute Bildung öffnet viele Türen.
+studium|Mein Studium dauert noch zwei Jahre.
+abschluss|Er hat sein Studium mit einem guten Abschluss beendet.
+prüfung|Die Prüfung war schwerer als erwartet.
+fähigkeit|Sie hat die Fähigkeit, schnell zu lernen.
+wissen|Sein Wissen über Geschichte ist beeindruckend.
+nachricht|Ich habe eine wichtige Nachricht für dich.
+berichterstattung|Die Berichterstattung war sehr einseitig.
+öffentlichkeit|Die Öffentlichkeit hat von dem Fall erfahren.
+einfluss|Soziale Medien haben großen Einfluss auf Jugendliche.
+quelle|Bitte geben Sie immer die Quelle an.
+werbung|Im Fernsehen läuft zu viel Werbung.
+zeitschrift|Diese Zeitschrift erscheint jeden Monat.
+vermitteln|Gute Lehrer können Wissen gut vermitteln.
+veröffentlichen|Die Zeitung will den Artikel morgen veröffentlichen.
+berichten|Das Radio berichtet über den Unfall.
+überprüfen|Man sollte jede Information überprüfen.
+beeinflussen|Werbung kann unsere Entscheidungen beeinflussen.
+abschließen|Sie will bald ihre Ausbildung abschließen.
+wirtschaft|Die Wirtschaft wächst in diesem Jahr langsam.
+handel|Der Handel mit Asien ist sehr wichtig.
+preis|Der Preis ist mir zu hoch.
+nachfrage|Die Nachfrage nach Elektroautos steigt.
+angebot|Das Angebot im Supermarkt ist riesig.
+gewinn|Die Firma hat dieses Jahr einen hohen Gewinn gemacht.
+verlust|Der Verlust war größer als erwartet.
+steuer|Die Steuer auf Benzin steigt wieder.
+einkommen|Sein Einkommen reicht kaum zum Leben.
+verbraucher|Verbraucher achten immer mehr auf den Preis.
+ware|Die Ware wurde gestern geliefert.
+beschwerde|Ich möchte eine Beschwerde einreichen.
+rechnung|Bitte überweisen Sie die Rechnung bis Freitag.
+vertrag|Der Vertrag läuft noch bis Dezember.
+erwerben|Er hat ein altes Haus erworben.
+überweisen|Ich überweise dir das Geld morgen.
+umtauschen|Kann ich die Hose bitte umtauschen?
+vergleichen|Vergleichen Sie vor dem Kauf die Preise.
+erheblich|Die Kosten sind erheblich gestiegen.
+ausreichend|Wir haben ausreichend Zeit für die Aufgabe.
+vermutlich|Er kommt vermutlich etwas später.
+zweifellos|Das war zweifellos eine gute Idee.
+allerdings|Das Essen war gut, allerdings etwas teuer.
+jedoch|Ich wollte kommen, jedoch war ich krank.
+außerdem|Außerdem müssen wir noch einkaufen.
+schließlich|Schließlich haben wir eine Lösung gefunden.
+zunehmend|Zunehmend mehr Menschen arbeiten von zu Hause.
+ursprünglich|Ursprünglich wollten wir im Mai reisen.
+gelegentlich|Er besucht uns gelegentlich am Wochenende.
+ausdrücklich|Er hat uns ausdrücklich darum gebeten.
+selbstverständlich|Selbstverständlich helfe ich dir beim Umzug.
+üblich|Es ist hier üblich, pünktlich zu sein.
+zuverlässig|Mein Kollege ist sehr zuverlässig.
+eindeutig|Die Antwort war eindeutig.
+angemessen|Der Preis für das Zimmer ist angemessen.
+bedeutend|Sie ist eine bedeutende Wissenschaftlerin.`.split("\n").map(l=>{const[w,t]=l.split("|"),v=VOC.find(x=>x.w==w);return{w,s:t,c:v?v.c:0,d:v?D(v):w}});
+ALL.push(...SV);
+const SYN=`erheblich=beträchtlich/deutlich/beachtlich
+ausreichend=genügend/hinreichend
+vermutlich=wahrscheinlich/mutmaßlich/voraussichtlich
+zweifellos=sicherlich/zweifelsohne/unbestreitbar
+allerdings=freilich/jedoch
+außerdem=zudem/ferner/überdies
+schließlich=letztlich/endlich/zuletzt
+zunehmend=wachsend/steigend
+ursprünglich=anfänglich/anfangs
+gelegentlich=manchmal/bisweilen
+ausdrücklich=explizit/nachdrücklich
+selbstverständlich=natürlich/gewiss
+üblich=gewöhnlich/gebräuchlich
+zuverlässig=verlässlich/vertrauenswürdig
+eindeutig=klar/unmissverständlich
+angemessen=passend/angebracht
+bedeutend=wichtig/wesentlich/bedeutsam
+einstellen=anstellen/beschäftigen
+entlassen=feuern/freisetzen
+fördern=stärken/vorantreiben
+unterstützen=helfen/beistehen
+beschließen=entscheiden/festlegen
+schützen=bewahren/sichern
+vermeiden=umgehen/meiden
+beweisen=belegen/nachweisen
+herstellen=produzieren/erzeugen/fertigen
+überprüfen=kontrollieren/prüfen
+beeinflussen=prägen/lenken
+erwerben=kaufen/anschaffen
+heilen=kurieren/auskurieren
+untersuchen=analysieren/erforschen
+vorbeugen=verhüten/vorsorgen
+leiden=erdulden/ertragen
+gehalt=Lohn/Verdienst
+vertrag=Abkommen/Vereinbarung
+beschwerde=Reklamation/Klage
+gefahr=Risiko/Bedrohung
+annahme=Vermutung/Hypothese
+ergebnis=Resultat/Befund
+konflikt=Streit/Auseinandersetzung
+meinung=Ansicht/Standpunkt/Auffassung
+entscheidung=Beschluss/Urteil
+abfall=Müll/Unrat
+termin=Verabredung/Frist
+besprechung=Sitzung/Konferenz
+fähigkeit=Kompetenz/Fertigkeit
+nachricht=Meldung/Mitteilung`.split("\n").map(l=>{const[w,y]=l.split("="),v=VOC.find(x=>x.w==w);return{w,y:y.split("/"),c:v?v.c:0,d:v?D(v):w}});
+/* SYNONIEMEN (3 lives) */
+let ys=0,yl=3;
+function syg(fresh){
+ tstop();if(fresh!==false){ys=0;yl=3}
+ const q=pick(pool(SYN)),ex=new Set([q.w,...q.y]),right=sh(q.y)[0],bank=[...new Set(SYN.flatMap(x=>x.y))].filter(x=>!ex.has(x)),opts=sh([right,...sh(bank).slice(0,3)]);let ans=null;
+ if(TS())tstart(Math.round(TS()*1.2),()=>{if(ans==null){ans="⏰";yl--;bad();rec(keyOf(q),0);draw()}});
+ function draw(){
+  if(yl<=0){tstop();if(ys>(G.yb||0)){G.yb=ys;save()}h(`${sOver()||""}<div class="big">💀</div><div class="msg">Game over! Score: ${ys} · Record: ${G.yb||0}</div><div class="row"><button class="b" id="nx">Opnieuw spelen</button></div>`);document.getElementById("nx").onclick=()=>syg();return}
+  const okA=ans&&q.y.includes(ans);
+  h(`<div class="sc"><span>${"❤️".repeat(yl)}</span><span>Score: ${ys}</span>${chSel()}</div>${tbar()}
+  <div class="sc" style="justify-content:center">Kies het synoniem van</div><div class="q">${esc(q.d||q.w)}</div>
+  ${EN[q.w]?`<div class="sc" style="justify-content:center">${esc(EN[q.w])}</div>`:""}
+  <div style="display:grid;gap:8px">${opts.map(o=>`<button class="b ${ans?(q.y.includes(o)?"ok":o==ans?"no":""):""}" ${ans?"disabled":""} data-o="${esc(o)}">${esc(o)}</button>`).join("")}</div>
+  <div class="msg" style="color:var(--${okA?"ok":"no"})">${ans?(okA?"Juist! ✓":"Fout")+" — "+esc(q.d||q.w)+" = "+esc(q.y.join(" / ")):""}</div>
+  <div class="row">${ans?'<button class="b" id="nx">Volgende →</button>':""}${knBtn()}</div>`);
+  bindCh();
+  app.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{tstop();ans=b.dataset.o;const ok=q.y.includes(ans);rec(keyOf(q),ok);if(ok){ys++;good(10);if(ys%10==0)won()}else{yl--;bad()}draw()});
+  const nx=document.getElementById("nx");if(nx)nx.onclick=()=>syg(false);bindKn(keyOf(q),()=>syg(false));
+ }
+ draw();
+}
+/* IDIOMEN (3 lives) */
+let is=0,il=3;
+function idi(fresh){
+ if(fresh!==false){is=0;il=3}
+ const q=pick(pool(IDI)),ms=sh([q,...sh(IDI.filter(x=>x.m!=q.m)).slice(0,3)]);let ans=null;if(TS())tstart(Math.round(TS()*1.5),()=>{if(ans==null){ans=-1;il--;bad();rec(keyOf(q),0);draw()}});
+ function draw(){
+  if(il<=0){tstop();if(is>(G.ib||0)){G.ib=is;save()}
+   h(`${sOver()||""}<div class="big">💀</div><div class="msg">Game over! Score: ${is} · Record: ${G.ib||0}</div><div class="row"><button class="b" id="nx">Opnieuw spelen</button></div>`);
+   document.getElementById("nx").onclick=()=>idi();return}
+  h(`<div class="sc"><span>${"❤️".repeat(il)}</span><span>Score: ${is}</span>${chSel()}</div>
+  ${tbar()}<div class="q">“${q.t}”</div>
+  <div style="display:grid;gap:8px">${ms.map((o,n)=>`<button class="b ${ans!=null?(o==q?"ok":n==ans?"no":""):""}" ${ans!=null?"disabled":""} data-m="${n}">${o.m}</button>`).join("")}</div>
+  <div class="msg" style="color:var(--${ans!=null&&ms[ans]==q?"ok":"no"})">${ans!=null?(ms[ans]==q?"Juist! ✓":"Fout — het betekent: "+q.m):""}</div>
+  <div class="row">${ans!=null?'<button class="b" id="nx">Volgende →</button>':""}${knBtn()}</div>`);
+  bindCh();
+  app.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{tstop();ans=+b.dataset.m;rec(keyOf(q),ms[ans]==q);if(ms[ans]==q){is++;good(10);if(is%10==0)won()}else{il--;bad()}draw()});
+  const nx=document.getElementById("nx");if(nx)nx.onclick=()=>idi(false);bindKn(keyOf(q),()=>idi(false));
+ }
+ draw();
+}
+/* VOORTGANG */
+function gcards(){
+ const GN=["Galgje","Memory","Voorzetsels","Der, die of das","Zinnen","Idiomen","Synoniemen","Kruiswoord","Woord Regen","Sterke werkwoorden"],dim='opacity:.2;filter:grayscale(1)';
+ return `<div class="sc" style="margin-top:14px"><b>Spelniveaus</b></div>`+GN.map(k=>{const g=gs(k),[L,x,c]=lvf(g.xp,80,40);return `<details class="it" style="display:block"><summary>${k} · Niveau ${L} ${RK[Math.min(4,(L-1)/3|0)]} <span style="float:right;color:var(--mut)">${x}/${c} XP</span></summary><div class="bar"><i style="width:${x/c*100}%"></i></div><div class="sc"><span>✓ ${g.c} goed · ${g.t?Math.round(g.c/g.t*100):0}% juist · beste combo ${g.b}</span></div><div style="font-size:20px;letter-spacing:4px">${GBD.map((d,i)=>`<span title="${d[0]}" style="${G.gb.includes(k+":"+i)?"":dim}">${GBI[i]}</span>`).join("")}</div></details>`}).join("")+`<div class="sc" style="margin-top:10px">Algemene badges</div><div style="font-size:20px;letter-spacing:4px">${AC.map(a=>`<span title="${a[2]}" style="${G.ach.includes(a[0])?"":dim}">${a[1]}</span>`).join("")}</div>`;
+}
+let PG={st:{},kn:{}},pty="v";
+try{Object.assign(PG,JSON.parse(localStorage.getItem("wd_pg")||"{}"))}catch(e){}
+const savePG=()=>{try{localStorage.setItem("wd_pg",JSON.stringify(PG))}catch(e){}};
+const keyOf=x=>x.y?"y:"+x.w:x.ar?"a:"+x.w:x.r?"r:"+x.r:x.p?"p:"+x.t+"|"+x.p:x.m?"i:"+x.t:x.s&&!x.w?"s:"+x.s:"v:"+x.w;
+const isK=x=>!!PG.kn[keyOf(x)];
+function rec(k,ok){const t=PG.st[k]||(PG.st[k]={c:0,w:0,s:0});if(ok){t.c++;t.s++}else{t.w++;t.s=0}savePG()}
+function pick(a){const ws=a.map(x=>{const t=PG.st[keyOf(x)];return t?Math.max(.4,1+Math.min(3,t.w)-Math.min(t.s,8)*.25):2});let r=Math.random()*ws.reduce((p,c)=>p+c,0);for(let i=0;i<a.length;i++){r-=ws[i];if(r<=0)return a[i]}return a[a.length-1]}
+const knBtn=()=>'<button class="b" id="kn">✓ Ik ken dit al</button>';
+function bindKn(k,next){const b=document.getElementById("kn");if(b)b.onclick=()=>{tstop();PG.kn[k]=1;savePG();toast("✓ Uit de spellen gehaald");next()}}
+const items=()=>[...VOC.map(x=>({k:"v:"+x.w,l:D(x)+" = "+(EN[x.w]||""),c:x.c,y:"v"})),...PR.map(x=>({k:"p:"+x.t+"|"+x.p,l:x.t+" "+x.p,c:x.c,y:"p"})),...IDI.map(x=>({k:"i:"+x.t,l:x.t,c:x.c,y:"i"})),...SYN.map(x=>({k:"y:"+x.w,l:x.w+" ≈ "+x.y[0],c:x.c,y:"y"})),...IRR.map(x=>({k:"r:"+x.r,l:x.r+" – "+x.f[0],c:10,y:"r"}))];
+function prog(){
+ const it=items(),isM=x=>PG.kn[x.k]||(PG.st[x.k]&&PG.st[x.k].s>=8),m=it.filter(isM).length;
+ const bar=(a,b)=>`<div class="bar" style="margin:3px 0"><i style="width:${b?a/b*100:0}%"></i></div>`;
+ const rows=[1,2,3,4,5,6,7,8,9,10,0].map(c=>{const f=it.filter(x=>x.c==c);if(!f.length)return"";const a=f.filter(isM).length;return `<div class="sc" style="margin:8px 0 0"><span>${c==10?"Onregelmatige werkwoorden":c==9?"Mijn lijst":c?"Thema "+c:"Overig"}</span><span>${a}/${f.length}</span></div>${bar(a,f.length)}`}).join("");
+ const weak=it.filter(x=>{const t=PG.st[x.k];return t&&t.w>t.c}).sort((a,b)=>(PG.st[b.k].w-PG.st[b.k].c)-(PG.st[a.k].w-PG.st[a.k].c)).slice(0,10);
+ const list=it.filter(x=>x.y==pty&&(!ch||x.c==ch||x.y=="r"));
+ h(`<div class="sc"><span>Beheerst (8× goed op rij of bekend)</span><span>${m}/${it.length} · ${Math.round(m/it.length*100)}%</span></div>${bar(m,it.length)}${gcards()}${rows}
+ <div class="sc" style="margin-top:14px"><b>Moeilijkste items</b></div>
+ ${weak.length?weak.map(x=>`<div class="it"><span>${esc(x.l)}</span><span>✗ ${PG.st[x.k].w} ✓ ${PG.st[x.k].c}</span></div>`).join(""):'<div class="sc">Nog geen fouten. Speel een paar rondes!</div>'}
+ <div class="sc" style="margin-top:14px"><b>Bekend: ${Object.keys(PG.kn).length} (aangevinkt = uit de spellen)</b></div>
+ <div class="sc"><select id="pt"><option value="v">Woorden</option><option value="p">Voorzetsels</option><option value="i">Idiomen</option><option value="r">Onregelmatig</option><option value="y">Synoniemen</option></select>${chSel()}</div>
+ <div style="max-height:260px;overflow:auto">${list.map(x=>`<label class="it"><span>${esc(x.l)}</span><input type="checkbox" data-k="${esc(x.k)}" ${PG.kn[x.k]?"checked":""} style="width:auto;margin:0"></label>`).join("")}</div>
+ <div class="row"><button class="b" id="rk">Reset bekende woorden</button><button class="b" id="rp">Reset voortgang</button></div>`);
+ bindCh();const sel=document.getElementById("pt");sel.value=pty;sel.onchange=()=>{pty=sel.value;prog()};
+ app.querySelectorAll("[data-k]").forEach(c=>c.onchange=()=>{if(c.checked)PG.kn[c.dataset.k]=1;else delete PG.kn[c.dataset.k];savePG()});
+ document.getElementById("rk").onclick=()=>{PG.kn={};savePG();prog()};
+ document.getElementById("rp").onclick=()=>{PG.st={};savePG();prog()};
+}
+/* DE OF HET + DIE OF DAT (3 lives, endless run) */
+let ars=0,arl=3;
+function art(mode,fresh){
+ if(fresh!==false){ars=0;arl=3}G.ab=G.ab||{};
+ const O=["der","die","das"],q=pick(pool(VOC.filter(x=>x.a).map(x=>({...x,ar:1})))),k=keyOf(q),right=q.a,gl=(EN[q.w]||"").replace(ARX,"");let ans=null;
+ if(TS()&&arl>0)tstart(TS(),()=>{if(ans==null){ans="⏰";arl--;bad();rec(k,0);draw()}});
+ function draw(){
+  if(arl<=0&&!ans){tstop();if(ars>(G.ab[mode]||0)){G.ab[mode]=ars;save()}
+   h(`${sOver()||""}<div class="big">💀</div><div class="msg">Game over! Score: ${ars} · Record: ${G.ab[mode]||0}</div><div class="row"><button class="b" id="nx">Opnieuw spelen</button></div>`);
+   document.getElementById("nx").onclick=()=>art(mode);return}
+  h(`<div class="sc"><span>${"❤️".repeat(arl)}</span><span>Score: ${ars}</span>${chSel()}</div>
+  ${tbar()}<div class="q ${ans==right?"pop":""}"><u>${ans||"&nbsp;"}</u> ${esc(D(q))}</div>
+  <div class="sc" style="justify-content:center">${esc(gl)}</div>
+  <div class="opts">${O.map(o=>`<button class="b ${ans?(o==right?"ok":o==ans?"no":""):""}" style="font-size:20px;padding:12px 22px" ${ans?"disabled":""} data-o="${o}">${o}</button>`).join("")}</div>
+  <div class="msg" style="color:var(--${ans==right?"ok":"no"})">${ans?(ans==right?"Juist! ✓":"Fout — "+right+" "+D(q)):""}</div>
+  <div class="row">${ans?'<button class="b" id="nx">Volgende →</button>':""}${knBtn()}</div>`);bindCh();
+  app.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{tstop();ans=b.dataset.o;const ok=ans==right;rec(k,ok);if(ok){ars++;good(8);if(ars%10==0)won()}else{arl--;bad()}draw()});
+  const nx=document.getElementById("nx");if(nx)nx.onclick=()=>art(mode,false);bindKn(k,()=>art(mode,false));
+ }
+ draw();
+}
+
+/* VERLEDEN TIJD */
+const ABL={h:"haben",z:"sein",hz:"haben of sein"},IRR=[];
+(()=>{let pg=1;`beginnen begann beginnt begonnen h
+bleiben blieb bleibt geblieben z
+bringen brachte bringt gebracht h
+denken dachte denkt gedacht h
+essen aß isst gegessen h
+fahren fuhr fährt gefahren z
+fallen fiel fällt gefallen z
+finden fand findet gefunden h
+fliegen flog fliegt geflogen z
+geben gab gibt gegeben h
+gehen ging geht gegangen z
+gewinnen gewann gewinnt gewonnen h
+halten hielt hält gehalten h
+helfen half hilft geholfen h
+kennen kannte kennt gekannt h
+kommen kam kommt gekommen z
+lassen ließ lässt gelassen h
+laufen lief läuft gelaufen z
+lesen las liest gelesen h
+liegen lag liegt gelegen h
+---
+nehmen nahm nimmt genommen h
+nennen nannte nennt genannt h
+rufen rief ruft gerufen h
+schlafen schlief schläft geschlafen h
+schließen schloss schließt geschlossen h
+schreiben schrieb schreibt geschrieben h
+sehen sah sieht gesehen h
+sein war ist gewesen z
+singen sang singt gesungen h
+sitzen saß sitzt gesessen h
+sprechen sprach spricht gesprochen h
+stehen stand steht gestanden h
+steigen stieg steigt gestiegen z
+sterben starb stirbt gestorben z
+tragen trug trägt getragen h
+treffen traf trifft getroffen h
+trinken trank trinkt getrunken h
+tun tat tut getan h
+verlieren verlor verliert verloren h
+vergessen vergaß vergisst vergessen h
+---
+verstehen verstand versteht verstanden h
+wachsen wuchs wächst gewachsen z
+waschen wusch wäscht gewaschen h
+werden wurde wird geworden z
+werfen warf wirft geworfen h
+wissen wusste weiß gewusst h
+ziehen zog zieht gezogen hz
+beschreiben beschrieb beschreibt beschrieben h
+beweisen bewies beweist bewiesen h
+empfehlen empfahl empfiehlt empfohlen h
+entscheiden entschied entscheidet entschieden h
+erfinden erfand erfindet erfunden h
+erhalten erhielt erhält erhalten h
+erscheinen erschien erscheint erschienen z
+gelingen gelang gelingt gelungen z
+gelten galt gilt gegolten h
+genießen genoss genießt genossen h
+geschehen geschah geschieht geschehen z
+---
+leiden litt leidet gelitten h
+leihen lieh leiht geliehen h
+mögen mochte mag gemocht h
+müssen musste muss gemusst h
+können konnte kann gekonnt h
+dürfen durfte darf gedurft h
+sollen sollte soll gesollt h
+wollen wollte will gewollt h
+haben hatte hat gehabt h
+brennen brannte brennt gebrannt h
+schneiden schnitt schneidet geschnitten h
+schwimmen schwamm schwimmt geschwommen hz
+streiten stritt streitet gestritten h
+unterscheiden unterschied unterscheidet unterschieden h
+vermeiden vermied vermeidet vermieden h
+verbieten verbot verbietet verboten h
+vergleichen verglich vergleicht verglichen h
+verbinden verband verbindet verbunden h`.split("\n").forEach(l=>{if(l=="---"){pg++;return}const[a,b,c,e,f]=l.split(" ");IRR.push({r:a,f:[b,c,e],a:f,c:pg})})})();
+
+let vm="t",vl=1,vg=0;
+const FN=["Präteritum (er/sie/es)","Präsens (er/sie/es)","Partizip II"],nrm=s=>s.trim().toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss"),okf=(i,a)=>a.split("/").map(nrm).includes(nrm(i));
+const suf=(a,b)=>{let n=0;while(n<a.length&&n<b.length&&a[a.length-1-n]==b[b.length-1-n])n++;return n};
+function ver(){
+ const pl=IRR.filter(x=>(!vg||x.c==vg)),q=pick(pl.filter(x=>!PG.kn["r:"+x.r]).length?pl.filter(x=>!PG.kn["r:"+x.r]):pl);
+ const av=[0,1,2].filter(i=>q.f[i]!="-"),fi=sh(av)[0],idx=vl==2?av:[0];let ans=null,res=null,vals={};
+ const top=()=>`<div class="sc" style="flex-wrap:wrap"><select id="vm"><option value="t">Typen</option><option value="m">Meerkeuze</option></select>${vm=="t"?'<select id="vl"><option value="1">Niveau 1: alleen Präteritum</option><option value="2">Niveau 2: alle vormen</option></select>':""}<select id="vg"><option value="0">Alle groepen</option>${[1,2,3,4].map(i=>`<option value="${i}">Groep ${i}</option>`).join("")}</select></div>`;
+ const bind=()=>{const a=document.getElementById("vm"),b=document.getElementById("vl"),c=document.getElementById("vg");a.value=vm;a.onchange=()=>{vm=a.value;ver()};if(b){b.value=vl;b.onchange=()=>{vl=+b.value;ver()}}c.value=vg;c.onchange=()=>{vg=+c.value;ver()};const n=document.getElementById("nx");if(n)n.onclick=ver;bindKn("r:"+q.r,ver)};
+ const kn='<button class="b" id="kn">✓ Ik ken dit al</button>';
+ if(vm=="t"){
+  const chk=force=>{idx.forEach(i=>{const e=document.getElementById("i"+i);if(e)vals[i]=e.value});res=idx.map(i=>!force&&okf(vals[i]||"",q.f[i]));const all=res.every(Boolean);tstop();rec("r:"+q.r,all);if(all)good(10+idx.length*5);else bad();draw()};
+  if(TS())tstart(Math.round(TS()*idx.length*1.5),()=>chk(true));
+  function draw(){
+   const all=res&&res.every(Boolean);
+   h(top()+tbar()+`<div class="q">${q.r}</div>${idx.includes(2)?`<div class="sc" style="justify-content:center">hulpwerkwoord: ${ABL[q.a]}</div>`:""}
+   ${idx.map(i=>`<input id="i${i}" placeholder="${FN[i]}" value="${esc(vals[i]||"")}" ${res?"disabled":""} autocomplete="off" autocapitalize="off" spellcheck="false">`).join("")}
+   ${res?`<div class="msg" style="color:var(--${all?"ok":"no"})">${all?"Juist! ✓":"Niet helemaal"}</div>`+idx.map((i,n)=>`<div class="it"><span>${FN[i]}</span><span style="color:var(--${res[n]?"ok":"no"})">${res[n]?"✓":"✗"} <b>${q.f[i]}</b></span></div>`).join(""):""}
+   <div class="row">${res?'<button class="b" id="nx">Volgende →</button>':'<button class="b" id="ck">Controleer</button>'}${kn}</div>`);
+   bind();const ck=document.getElementById("ck");if(ck)ck.onclick=()=>chk();
+   app.querySelectorAll("input").forEach(e=>{e.onkeydown=k=>{if(k.key=="Enter"){res?ver():chk()}}});
+   if(!res){const f=document.getElementById("i"+idx[0]);if(f)f.focus()}
+  }
+  draw();
+ }else{
+  const c0=q.f[fi].split("/")[0],st=q.r.replace(/e?n$/,""),rg=[st+"te",st+"t",(/^(be|ver|ent|er|ge|zer|miss)/.test(q.r)?"":"ge")+st+"t"][fi];
+  const oth=sh(IRR.filter(x=>x!=q&&x.f[fi]!="-").map(x=>x.f[fi].split("/")[0])).sort((a,b)=>suf(b,c0)-suf(a,c0)).slice(0,8);
+  const opts=sh([...new Set([c0,rg,...sh(oth)])].filter(o=>o==c0||!q.f[fi].split("/").includes(o)).slice(0,4).concat([c0]).filter((v,i,a)=>a.indexOf(v)==i)).slice(0,4);
+  if(!opts.includes(c0))opts[0]=c0;
+  if(TS())tstart(TS(),()=>{if(ans==null){ans="⏰";rec("r:"+q.r,0);bad();draw()}});
+  function draw(){
+   h(top()+tbar()+`<div class="q">${q.r}</div><div class="sc" style="justify-content:center">${FN[fi]}${fi==2?" · "+ABL[q.a]:""}</div>
+   <div style="display:grid;gap:8px">${opts.map(o=>`<button class="b ${ans?(o==c0?"ok":o==ans?"no":""):""}" ${ans?"disabled":""} data-o="${esc(o)}">${esc(o)}</button>`).join("")}</div>
+   <div class="msg" style="color:var(--${ans==c0?"ok":"no"})">${ans?(ans==c0?"Juist! ✓":"Fout — "+q.f[fi]):""}</div>
+   <div class="row">${ans?'<button class="b" id="nx">Volgende →</button>':""}${kn}</div>`);
+   bind();app.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{tstop();ans=b.dataset.o;rec("r:"+q.r,ans==c0);if(ans==c0)good(8);else bad();draw()});
+  }
+  draw();
+ }
+}
+/* KRUISWOORD */
+const XS=17;
+function xgen(cands,N){
+ const ok=(g,D,w,r,c,d)=>{const dr=d?1:0,dc=d?0:1,n=w.length;
+  if(r<0||c<0||r+dr*(n-1)>=XS||c+dc*(n-1)>=XS)return -1;
+  if(g[r-dr]?.[c-dc]||g[r+dr*n]?.[c+dc*n])return -1;
+  let x=0;for(let i=0;i<n;i++){const a=r+dr*i,b=c+dc*i,v=g[a][b];
+   if(v){if(v!=w[i]||(D[a][b]&(d?2:1)))return -1;x++}
+   else if(g[a+dc]?.[b+dr]||g[a-dc]?.[b-dr])return -1}
+  return x>=1?x:-1};
+ let best=[];
+ for(let t=0;t<40&&best.length<N;t++){
+  const ws=sh(cands).slice(0,26).sort((a,b)=>b.w.length-a.w.length),g=Array.from({length:XS},()=>Array(XS).fill("")),D=Array.from({length:XS},()=>Array(XS).fill(0)),pl=[];
+  const put=(o,r,c,d)=>{for(let i=0;i<o.w.length;i++){const a=r+(d?i:0),b=c+(d?0:i);g[a][b]=o.w[i];D[a][b]|=d?2:1}pl.push({...o,r,c,d})};
+  put(ws[0],XS>>1,(XS-ws[0].w.length)>>1,0);
+  for(let k=1;k<ws.length&&pl.length<N;k++){const o=ws[k],op=[];
+   for(let i=0;i<o.w.length;i++)for(const q of pl)for(let j=0;j<q.w.length;j++)if(q.w[j]==o.w[i]){const rr=q.d?q.r+j:q.r-i,cc=q.d?q.c-i:q.c+j,d=q.d?0:1;if(ok(g,D,o.w,rr,cc,d)>0)op.push([rr,cc,d])}
+   if(op.length){const[rr,cc,d]=op[Math.random()*op.length|0];put(o,rr,cc,d)}}
+  if(pl.length>best.length)best=pl}
+ return best}
+function xw(){
+ const seen=new Set(),cand=[];
+ pool(VOC).forEach(x=>{const e=EN[x.w];if(e&&/^[a-z]{4,10}$/.test(x.w)&&!seen.has(e)){seen.add(e);cand.push({w:x.w,en:e})}});
+ if(cand.length<4){h(`<div class="sc"><span>Kruiswoord</span>${chSel()}</div><div class="msg">Te weinig woorden hier. Kies “Alle thema's”.</div>`);bindCh();return}
+ const P=xgen(cand,8+(Math.random()*5|0)),r0=Math.min(...P.map(p=>p.r)),c0=Math.min(...P.map(p=>p.c)),r1=Math.max(...P.map(p=>p.r+(p.d?p.w.length-1:0))),c1=Math.max(...P.map(p=>p.c+(p.d?0:p.w.length-1)));
+ const R=r1-r0+1,C=c1-c0+1,WD=P.map(p=>({...p,r:p.r-r0,c:p.c-c0,done:0})),mk=v=>Array.from({length:R},()=>Array(C).fill(v));
+ const sol=mk(""),u=mk(""),lock=mk(0),hn=mk(0),rev=mk(0),num={};
+ const cellsOf=w=>[...w.w].map((_,i)=>[w.r+(w.d?i:0),w.c+(w.d?0:i)]);
+ WD.forEach(w=>cellsOf(w).forEach(([a,b],i)=>sol[a][b]=w.w[i]));
+ let n=0;for(let a=0;a<R;a++)for(let b=0;b<C;b++){const st=WD.filter(w=>w.r==a&&w.c==b);if(st.length){n++;num[a+","+b]=n;st.forEach(w=>w.n=n)}}
+ let sel={r:WD[0].r,c:WD[0].c},dir=WD[0].d,chk=false,over=false,fm="";
+ const wordAt=(a,b,d)=>WD.find(w=>w.d==d&&(d?w.c==b&&a>=w.r&&a<w.r+w.w.length:w.r==a&&b>=w.c&&b<w.c+w.w.length));
+ const aw=()=>wordAt(sel.r,sel.c,dir)||(dir=1-dir,wordAt(sel.r,sel.c,dir));
+ const ac=WD.filter(w=>!w.d),dn=WD.filter(w=>w.d),cl=w=>`<div class="it" data-w="${WD.indexOf(w)}" style="cursor:pointer"><span>${w.n}. ${esc(w.en)} (${w.w.length})</span></div>`;
+ h(`<div class="sc"><span>Kruiswoord · ${WD.length} woorden</span>${chSel()}</div>${tbar()}<div id="xb" class="msg"></div>
+ <div class="xg" style="grid-template-columns:repeat(${C},1fr);max-width:${C*36}px">${sol.map((row,a)=>row.map((v,b)=>v?`<div class="xc" id="x${a}_${b}" data-r="${a}" data-c="${b}">${num[a+","+b]?`<i>${num[a+","+b]}</i>`:""}<b></b></div>`:'<div class="xe"></div>').join("")).join("")}</div>
+ <div class="row"><button class="b" id="xk">Controleer</button><button class="b" id="xh">Onthul letter (−3 XP)</button><button class="b" id="xn">Nieuwe puzzel</button></div><div id="xe"></div>
+ <div class="sc" style="margin-top:12px"><b>Horizontaal →</b></div>${ac.map(cl).join("")}<div class="sc" style="margin-top:8px"><b>Verticaal ↓</b></div>${dn.map(cl).join("")}
+ <input id="cx" class="hid" value="·" autocomplete="off" autocapitalize="off" spellcheck="false">`);
+ bindCh();const cx=document.getElementById("cx"),foc=()=>{cx.focus();cx.value="·"};
+ function paint(){
+  const a=aw(),set=new Set(cellsOf(a).map(x=>x.join()));
+  for(let i=0;i<R;i++)for(let j=0;j<C;j++)if(sol[i][j]){const e=document.getElementById("x"+i+"_"+j);e.querySelector("b").textContent=u[i][j];e.className="xc"+(sel.r==i&&sel.c==j?" xs":set.has(i+","+j)?" xa":"")+(chk&&u[i][j]&&u[i][j]!=sol[i][j]?" xw":"")+(rev[i][j]?" xr":"")}
+  document.getElementById("xb").textContent=over?fm:a.n+(a.d?"↓ ":"→ ")+a.en+" ("+a.w.length+")";
+  app.querySelectorAll("[data-w]").forEach(e=>e.classList.toggle("xd",!!WD[+e.dataset.w].done))}
+ function setCh(i,j,v,hint){
+  if(over||lock[i][j])return;u[i][j]=v;chk=false;if(hint)hn[i][j]=lock[i][j]=1;
+  WD.filter(w=>cellsOf(w).some(x=>x[0]==i&&x[1]==j)).forEach(w=>{const cs=cellsOf(w);if(!w.done&&cs.every(x=>u[x[0]][x[1]]==sol[x[0]][x[1]])){w.done=1;if(!cs.some(x=>hn[x[0]][x[1]])){good(6);rec("v:"+w.w,1)}cs.forEach(x=>lock[x[0]][x[1]]=1)}});
+  if(WD.every(w=>w.done))finish(true)}
+ function finish(win){
+  if(over)return;over=true;tstop();
+  if(win){const x=good(15+WD.length*2);won();fm="🎉 Klaar! +"+x+" XP"}
+  else{bad();fm="⏰ Tijd is om!";for(let i=0;i<R;i++)for(let j=0;j<C;j++)if(sol[i][j]&&u[i][j]!=sol[i][j]){u[i][j]=sol[i][j];rev[i][j]=1}}
+  document.getElementById("xe").innerHTML=`<div class="sc" style="margin-top:10px"><b>Vink woorden aan die je al kent</b></div>`+WD.map(w=>`<label class="it"><span>${w.w} = ${esc(w.en)}</span><input type="checkbox" data-k="v:${w.w}" ${PG.kn["v:"+w.w]?"checked":""} style="width:auto;margin:0"></label>`).join("");
+  app.querySelectorAll("#xe [data-k]").forEach(c=>c.onchange=()=>{if(c.checked)PG.kn[c.dataset.k]=1;else delete PG.kn[c.dataset.k];savePG()});paint()}
+ const step=d=>{const cs=cellsOf(aw()),i=cs.findIndex(x=>x[0]==sel.r&&x[1]==sel.c),k=cs[i+d];if(k)sel={r:k[0],c:k[1]};return !!k};
+ cx.oninput=e=>{const L=cx.value.toLowerCase().replace(/[^a-z]/g,"").slice(-1),del=!L&&(!cx.value||(e.inputType||"").startsWith("delete"));cx.value="·";if(over)return;
+  if(L){setCh(sel.r,sel.c,L);step(1)}
+  else if(del){if(u[sel.r][sel.c]&&!lock[sel.r][sel.c]){u[sel.r][sel.c]="";chk=false}else if(step(-1)&&!lock[sel.r][sel.c]){u[sel.r][sel.c]="";chk=false}}
+  paint()};
+ app.querySelectorAll(".xc").forEach(e=>e.onclick=()=>{const a=+e.dataset.r,b=+e.dataset.c;if(sel.r==a&&sel.c==b){if(wordAt(a,b,1-dir))dir=1-dir}else{sel={r:a,c:b};if(!wordAt(a,b,dir))dir=1-dir}foc();paint()});
+ app.querySelectorAll("[data-w]").forEach(e=>e.onclick=()=>{const w=WD[+e.dataset.w],f=cellsOf(w).find(x=>!u[x[0]][x[1]])||cellsOf(w)[0];sel={r:f[0],c:f[1]};dir=w.d;foc();paint()});
+ document.getElementById("xk").onclick=()=>{if(over)return;chk=true;const bw=WD.filter(w=>!w.done&&cellsOf(w).some(x=>u[x[0]][x[1]]&&u[x[0]][x[1]]!=sol[x[0]][x[1]]));if(bw.length){bad();bw.forEach(w=>rec("v:"+w.w,0))}else toast("Alles wat je invulde klopt ✓");paint()};
+ document.getElementById("xh").onclick=()=>{if(over||lock[sel.r][sel.c])return;G.xp=Math.max(0,G.xp-3);const g=gs(cur);g.xp=Math.max(0,g.xp-3);save();hdr();toast("−3 XP");setCh(sel.r,sel.c,sol[sel.r][sel.c],1);step(1);paint()};
+ document.getElementById("xn").onclick=xw;
+ if(TS())tstart(TS()*WD.length*4,()=>finish(false));
+ paint();foc();
+}
+/* WOORD REGEN */
+function wr(){
+ tstop();
+ const cand=pool(VOC).filter(x=>EN[x.w]&&x.w.length>=3&&x.w.length<=14);
+ if(cand.length<4){h(`<div class="sc"><span>Woord Regen</span>${chSel()}</div><div class="msg">Te weinig woorden hier. Kies “Alle thema's”.</div>`);bindCh();return}
+ let lives=3,score=0,cleared=0,over=false,words=[],missed=[],sp=0;const H=320,base=[16,20,16,12][T];
+ h(`<div class="sc"><span id="rl"></span><span id="rs"></span>${chSel()}</div>
+ <div class="ar" id="ar"><div class="ov" id="ov"><div>Typ het Duitse woord voordat het de grond raakt.</div><button class="b" id="st">▶ Start</button></div></div>
+ <input id="ri" placeholder="Typ het Duitse woord…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-top:10px;font-size:16px">
+ <div class="msg" id="rm"></div><div class="row"><button class="b" id="rn">Opnieuw</button></div>`);
+ bindCh();const ar=document.getElementById("ar"),ri=document.getElementById("ri"),rm=document.getElementById("rm");
+ const lvl=()=>1+(cleared/5|0),upd=()=>{document.getElementById("rl").textContent="❤️".repeat(Math.max(0,lives));document.getElementById("rs").textContent="Score: "+score+" · Snelheid "+lvl()};
+ function spawn(){
+  if(words.length>=7)return;let o,t=0;do{o=pick(cand);t++}while(words.some(x=>x.w==o.w)&&t<8);if(words.some(x=>x.w==o.w))return;
+  const el=document.createElement("div");el.className="fw";el.textContent=EN[o.w]+" ("+o.w.length+")";ar.appendChild(el);
+  el.style.left=Math.random()*Math.max(0,ar.clientWidth-el.offsetWidth)+"px";el.style.top="0px";words.push({w:o.w,en:EN[o.w],y:0,el})}
+ function miss(w){words.splice(words.indexOf(w),1);w.el.remove();lives--;bad();rec("v:"+w.w,0);if(!missed.some(m=>m.w==w.w))missed.push(w);rm.textContent="✗ "+w.w+" = "+w.en;upd();if(lives<=0)end()}
+ function hit(w){words.splice(words.indexOf(w),1);w.el.remove();score++;cleared++;good(8);rec("v:"+w.w,1);ri.value="";rm.textContent="✓ "+w.w;upd();if(cleared%5==0)toast("⚡ Sneller!")}
+ function end(){
+  over=true;tstop();if(score>(G.wb||0)){G.wb=score;save()}if(score>=10)won();
+  ar.insertAdjacentHTML("beforeend",`<div class="ov">${sOver()||""}<div class="big">💀</div><b>Game over</b><div>Score: ${score} · Record: ${G.wb||0}</div></div>`);
+  rm.innerHTML=missed.length?`<div class="sc" style="justify-content:center">Gemist:</div>`+missed.map(m=>`<div class="it"><span>${esc(m.w)}</span><span>${esc(m.en)}</span></div>`).join(""):""}
+ function tick(){
+  if(over)return;sp+=50;if(sp>=Math.max(1300,4200-lvl()*200)){sp=0;spawn()}
+  const dy=H/(Math.max(4,base-lvl()*.7)*20);
+  [...words].forEach(w=>{w.y+=dy;w.el.style.top=w.y+"px";if(w.y>=H-30&&!over)miss(w)})}
+ ri.oninput=()=>{if(over)return;const n1=z=>z.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ß/g,"ss"),n2=z=>z.replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss"),r=ri.value.trim().toLowerCase(),v=n1(r),v2=n2(r),m=words.find(x=>n1(x.w)==v||n2(x.w)==v2);if(m&&v){hit(m);return}words.forEach(x=>x.el.classList.toggle("hl",!!v&&(n1(x.w).startsWith(v)||n2(x.w).startsWith(v2))))};
+ ri.onkeydown=e=>{if(e.key=="Enter")ri.value=""};
+ document.getElementById("st").onclick=()=>{document.getElementById("ov").remove();spawn();TM.id=setInterval(tick,50);ri.focus()};
+ document.getElementById("rn").onclick=wr;upd();
+}
+/* MIJN WOORDEN */
+let MY={v:[],p:[],i:[],sy:[],ov:{}},mt="v",mmsg="",edq="";
+try{MY=Object.assign(MY,JSON.parse(localStorage.getItem("wd_my")||"{}"))}catch(e){}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function rebuild(){
+ [VOC,PR,IDI,ALL,SYN].forEach(a=>{for(let i=a.length-1;i>=0;i--)if(a[i].my)a.splice(i,1)});
+ if(!rebuild.b)rebuild.b={...EN};for(const k in EN)if(!(k in rebuild.b))delete EN[k];Object.assign(EN,rebuild.b);
+ MY.v.forEach(x=>{VOC.push({w:x.w,c:9,my:1,a:x.a||undefined});EN[x.w]=x.en+(x.a?" · "+x.a:"");if(x.s)ALL.push({s:x.s,c:7,w:x.w,my:1})});
+ MY.p.forEach(x=>PR.push({t:x.t,p:x.p,c:9,my:1}));
+ MY.i.forEach(x=>IDI.push({t:x.t,m:x.m,c:9,my:1}));
+ MY.sy.forEach(x=>SYN.push({w:x.w,y:x.y,c:9,my:1}));
+ for(const k in MY.ov){const v=VOC.find(x=>x.w==k);if(v)EN[k]=MY.ov[k]+(v.a?" · "+v.a:"")}
+}
+function addRow(a){a=a.map(x=>(x||"").trim());if(!a[0]||!a[1])return 0;
+ if(mt=="v"){let w=a[0].toLowerCase(),ar=(a[2]||"").toLowerCase(),s=a[3]||"";
+  const m=w.match(/^(der|die|das)\s+(\S.*)$/)||w.match(/^([\^~])\s*(\S.*)$/);if(m){w=m[2];if(!ar)ar=m[1]}
+  if(!["der","die","das"].includes(ar))ar="";
+  const o=MY.v.find(x=>x.w==w);if(o){o.en=a[1];if(ar)o.a=ar;if(s)o.s=s}else MY.v.push({w,en:a[1],s,a:ar})}
+ else if(mt=="p")MY.p.push({t:a[0],p:a[1].toLowerCase()});
+ else if(mt=="s")MY.sy.push({w:a[0].toLowerCase(),y:a[1].split(/[\/,]/).map(x=>x.trim().toLowerCase()).filter(Boolean)});
+ else MY.i.push({t:a[0],m:a[1]});return 1}
+function persist(){try{localStorage.setItem("wd_my",JSON.stringify(MY))}catch(e){}rebuild()}
+function mine(){
+ const L={v:["Duits woord","Nederlands","Lidwoord: der, die of das (optioneel)","Voorbeeldzin (optioneel)"],p:["Werkwoord (bv. warten)","Voorzetsel (bv. auf)"],i:["Idioom","Betekenis"],s:["Woord","Synoniem(en), gescheiden door /"]}[mt];
+ const show=x=>mt=="v"?`${x.a?esc(x.a)+" ":""}${esc(x.w)} = ${esc(x.en)}${x.s?" · "+esc(x.s):""}`:mt=="p"?`${esc(x.t)} <b>${esc(x.p)}</b>`:mt=="s"?`${esc(x.w)} ≈ ${esc(x.y.join(" / "))}`:`${esc(x.t)} = ${esc(x.m)}`;
+ h(`<div class="sc"><span>Mijn lijst: ${MY.v.length} woorden · ${MY.p.length} voorzetsels · ${MY.i.length} idiomen · ${MY.sy.length} synoniemen</span></div>
+ <div class="sc">Je woorden doen mee bij “Alle thema's” en bij “Mijn woorden” in elk spel.</div>
+ <select id="mt" style="margin-bottom:8px"><option value="v">Woord</option><option value="p">Werkwoord + voorzetsel</option><option value="i">Idioom</option><option value="s">Synoniem</option></select>
+ ${L.map((x,n)=>`<input id="f${n}" placeholder="${x}">`).join("")}
+ <div class="row" style="margin:0 0 12px"><button class="b" id="add">+ Toevoegen</button></div>
+ <textarea id="bulk" placeholder="Meerdere tegelijk, één per regel, gescheiden door =  (bv. vermeiden = vermijden  of  die Gesellschaft = samenleving)"></textarea>
+ <div class="row" style="margin:0 0 6px"><button class="b" id="bk">Lijst toevoegen</button></div>
+ <div class="msg">${mmsg}</div>
+ <div>${MY[mt=="s"?"sy":mt].map((x,n)=>`<div class="it"><span>${show(x)}</span><button class="b" data-d="${n}">✕</button></div>`).join("")}</div>
+ <div class="sc" style="margin-top:14px"><b>Definities bewerken</b></div><input id="eds" placeholder="Zoek een woord of vertaling…" value="${esc(edq)}"><div id="edl"></div>
+ <textarea id="bak" style="margin-top:12px" placeholder="Back-up: Exporteer om te kopiëren, plak hier en klik Importeer op een ander apparaat"></textarea>
+ <div class="row" style="margin-top:0"><button class="b" id="ex">Exporteer</button><button class="b" id="im">Importeer</button></div>`);
+ const sel=document.getElementById("mt");sel.value=mt;sel.onchange=()=>{mt=sel.value;mmsg="";mine()};
+ document.getElementById("add").onclick=()=>{const ok=addRow(L.map((_,n)=>document.getElementById("f"+n).value));mmsg=ok?"✓ Toegevoegd":"Vul minstens de eerste twee velden in.";persist();mine()};
+ document.getElementById("bk").onclick=()=>{let n=0;document.getElementById("bulk").value.split("\n").forEach(l=>{let q=l.split("=");if(mt=="v"&&q.length>=3&&!/^\s*(der|die|das|\^|~)\s*$/i.test(q[2]))q=[q[0],q[1],"",q.slice(2).join("=")];n+=addRow(q)});mmsg="✓ "+n+" toegevoegd";persist();mine()};
+ app.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{MY[mt=="s"?"sy":mt].splice(+b.dataset.d,1);persist();mine()});
+ document.getElementById("ex").onclick=()=>{const t=JSON.stringify({...MY,pg:PG,gx:G.gx,xp:G.xp,spent:G.spent,shop:G.shop});document.getElementById("bak").value=t;try{navigator.clipboard.writeText(t)}catch(e){}};
+ document.getElementById("im").onclick=()=>{try{const o=JSON.parse(document.getElementById("bak").value);["v","p","i","sy"].forEach(k=>(Array.isArray(o[k])?o[k]:[]).forEach(x=>{if(x&&typeof x=="object"&&!MY[k].some(y=>JSON.stringify(y)==JSON.stringify(x)))MY[k].push(x)}));if(o.ov&&typeof o.ov=="object")Object.assign(MY.ov,o.ov);if(o.pg){Object.assign(PG.kn,o.pg.kn||{});for(const k in o.pg.st||{}){const a=PG.st[k],b=o.pg.st[k];if(!a||b.c+b.w>a.c+a.w)PG.st[k]=b}savePG()}if(o.gx){for(const k in o.gx){if(!G.gx[k]||o.gx[k].xp>G.gx[k].xp)G.gx[k]=o.gx[k]}if(o.xp>G.xp)G.xp=o.xp;if(typeof o.spent==="number"&&o.spent<G.spent)G.spent=o.spent;if(o.shop&&Array.isArray(o.shop.owned)){G.shop.owned=[...new Set([...(G.shop.owned||[]),...o.shop.owned])];G.shop.equipped=Object.assign(G.shop.equipped||{},o.shop.equipped||{})}save();hdr();applyCharacter()}mmsg="✓ Geïmporteerd"}catch(e){mmsg="Ongeldige back-up."}persist();mine()};
+ const es=document.getElementById("eds");es.oninput=()=>{edq=es.value;renderEd()};renderEd();
+ hdr();
+}
+function renderEd(){
+ const q=edq.trim().toLowerCase(),box=document.getElementById("edl");if(!box)return;
+ const f=q?VOC.filter(x=>x.w.includes(q)||(EN[x.w]||"").toLowerCase().includes(q)):[];
+ box.innerHTML=(q?"":'<div class="sc">Typ om te zoeken (max. 25 resultaten).</div>')+f.slice(0,25).map(x=>`<div class="it" style="display:block"><b>${x.a?x.a+" ":""}${esc(D(x))}</b><div class="row" style="margin:4px 0 0;flex-wrap:nowrap"><input data-ew="${esc(x.w)}" value="${esc((EN[x.w]||"").replace(ARX,""))}" style="margin:0"><button class="b" data-er="${esc(x.w)}" title="Terugzetten" ${MY.ov[x.w]?"":"disabled"}>↩</button></div></div>`).join("");
+ box.querySelectorAll("[data-ew]").forEach(i=>i.onchange=()=>{const v=i.value.trim();if(!v)return;MY.ov[i.dataset.ew]=v;persist();i.closest(".it").querySelector("[data-er]").disabled=false;toast("✓ Definitie opgeslagen")});
+ box.querySelectorAll("[data-er]").forEach(b=>b.onclick=()=>{delete MY.ov[b.dataset.er];persist();toast("↩ Teruggezet");renderEd()})}
+rebuild();hdr();go("Galgje");
+buddyRefresh();applyCharacter();
+applyCharacter(); characterHome();
+</script>
+<script>
+if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(err => console.warn("Service worker registration failed:", err));
+  });
+}
+</script>
+</body></html>
